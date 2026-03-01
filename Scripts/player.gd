@@ -1,25 +1,49 @@
 extends CharacterBody2D
 
+@export var SPEED : float = 300.0
+@export var JUMP_VELOCITY : float = 400.0
+@export var jump :bool = true
+@export var fallGraV : float = 0.3
+@export var grav : float = 1
+var FinalGrav: float
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+@onready var anim: AnimatedSprite2D = $Animations
 
+func _ready() -> void:
+	up_direction = Vector2.UP
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
+
+	# Gravity
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		velocity += get_gravity() * delta * FinalGrav
 
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+		if velocity.y > 0:
+			FinalGrav = fallGraV
+			anim.play("Fall")
+		else:
+			FinalGrav = grav
+			anim.play("Jump")
+	if velocity.x < 0:
+		anim.flip_h = true
+	else:
+		velocity.x > 0
+		anim.flip_h = false
+	
+	if Input.is_action_just_pressed("UP") and is_on_floor() and jump:
+		velocity.y = -JUMP_VELOCITY
+		print("jump")
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("ui_left", "ui_right")
+	# Horizontal movement
+	var direction := Input.get_axis("LEFT", "RIGHT")
 	if direction:
 		velocity.x = direction * SPEED
+		if is_on_floor():
+			anim.play("Run")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		if is_on_floor():
+			anim.play("Idle")
 
+	
 	move_and_slide()

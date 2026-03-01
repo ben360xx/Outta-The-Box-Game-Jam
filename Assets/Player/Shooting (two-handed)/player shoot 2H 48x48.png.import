@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bajd1n6dro6se"
-path="res://.godot/imported/Player.png-54d4b13ac506f96b99814af866f299ae.ctex"
+uid="uid://c8y7p6ga4vq8"
+path="res://.godot/imported/player shoot 2H 48x48.png-2886aeaab1a5b4d77e3d0c3f424f4a5c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Player.png"
-dest_files=["res://.godot/imported/Player.png-54d4b13ac506f96b99814af866f299ae.ctex"]
+source_file="res://Assets/Player/Shooting (two-handed)/player shoot 2H 48x48.png"
+dest_files=["res://.godot/imported/player shoot 2H 48x48.png-2886aeaab1a5b4d77e3d0c3f424f4a5c.ctex"]
 
 [params]
 
