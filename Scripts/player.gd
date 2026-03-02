@@ -30,6 +30,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x > 0
 		anim.flip_h = false
 	
+
 	if Input.is_action_just_pressed("UP") and is_on_floor() and jump:
 		velocity.y = -JUMP_VELOCITY
 		print("jump")
@@ -47,3 +48,6 @@ func _physics_process(delta: float) -> void:
 
 	
 	move_and_slide()
+
+	if is_on_wall() and Input.is_action_just_pressed("WALLJUMP") and jump:
+		velocity.y = -JUMP_VELOCITY

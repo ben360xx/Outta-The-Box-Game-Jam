@@ -277,6 +277,18 @@ position = Vector2(0, 0.7999878)
 scale = Vector2(0.99999976, 1)
 shape = SubResource("RectangleShape2D_efk68")
 
+[node name="Icon2" type="Sprite2D" parent="." unique_id=1467731889]
+position = Vector2(554, 148.5)
+scale = Vector2(0.6406255, 1.8671875)
+texture = ExtResource("2_0dy5s")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Icon2" unique_id=83934913]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Icon2/StaticBody2D" unique_id=1753179195]
+position = Vector2(0, 0.7999878)
+scale = Vector2(0.99999976, 1)
+shape = SubResource("RectangleShape2D_efk68")
+
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1900342139]
 position = Vector2(37, 140)
 up_direction = Vector2(0, 1)
