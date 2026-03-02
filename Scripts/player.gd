@@ -1,8 +1,10 @@
 extends CharacterBody2D
 
 @export var SPEED : float = 10.0
+@export var KICKBACK : float = 500.0
 @export var JUMP_VELOCITY : float = 400.0
 @export var jump :bool = true
+@export var gun :bool = true
 @export var fallGraV : float = 0.3
 @export var grav : float = 1
 var FinalGrav: float
@@ -45,7 +47,9 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		if is_on_floor():
 			anim.play("Idle")
-
+	if Input.is_action_just_pressed("SHOOT") and gun:
+		var mouse_direction = global_position.direction_to(get_local_mouse_position())
+		velocity = -mouse_direction * KICKBACK
 	
 	move_and_slide()
 
