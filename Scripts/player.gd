@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var SPEED : float = 300.0
+@export var SPEED : float = 10.0
 @export var JUMP_VELOCITY : float = 400.0
 @export var jump :bool = true
 @export var fallGraV : float = 0.3
@@ -38,7 +38,7 @@ func _physics_process(delta: float) -> void:
 	# Horizontal movement
 	var direction := Input.get_axis("LEFT", "RIGHT")
 	if direction:
-		velocity.x = direction * SPEED
+		velocity.x += SPEED * direction
 		if is_on_floor():
 			anim.play("Run")
 	else:
@@ -50,4 +50,5 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 	if is_on_wall() and Input.is_action_just_pressed("WALLJUMP") and jump:
+		velocity.x += 500 * -direction
 		velocity.y = -JUMP_VELOCITY
