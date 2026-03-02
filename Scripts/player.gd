@@ -9,7 +9,7 @@ extends CharacterBody2D
 @export var grav : float = 1
 var FinalGrav: float
 
-@onready var anim: AnimatedSprite2D = $Animations
+@onready var anim: Sprite2D = $Sprite/Sprite
 
 func _ready() -> void:
 	up_direction = Vector2.UP
@@ -22,14 +22,11 @@ func _physics_process(delta: float) -> void:
 
 		if velocity.y > 0:
 			FinalGrav = fallGraV
-			anim.play("Fall")
 		else:
 			FinalGrav = grav
-			anim.play("Jump")
 	if velocity.x < 0:
 		anim.flip_h = true
-	else:
-		velocity.x > 0
+	elif velocity.x > 0:
 		anim.flip_h = false
 	
 
