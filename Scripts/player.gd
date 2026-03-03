@@ -1,8 +1,10 @@
 extends CharacterBody2D
 
-@export var SPEED : float = 300.0
+@export var SPEED : float = 10.0
+@export var KICKBACK : float = 400.0
 @export var JUMP_VELOCITY : float = 400.0
 @export var jump :bool = true
+@export var gun :bool = true
 @export var fallGraV : float = 0.3
 @export var grav : float = 1
 var FinalGrav: float
@@ -35,12 +37,16 @@ func _physics_process(delta: float) -> void:
 	# Horizontal movement
 	var direction := Input.get_axis("LEFT", "RIGHT")
 	if direction:
-		velocity.x = direction * SPEED
+		print(velocity.x)
+		if velocity.x < 300:
+			velocity.x += direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
-	
+	if Input.is_action_just_pressed("SHOOT") and gun:
+		var mouse_direction = global_position.direction_to(get_local_mouse_position())
+		velocity = -mouse_direction * KICKBACK
 	move_and_slide()
 
 	if is_on_wall() and Input.is_action_just_pressed("WALLJUMP") and jump:
-		velocity.y = -JUMP_VELOCITY
+		velocity.x += -direction * 500
+		velocity.y = -600
