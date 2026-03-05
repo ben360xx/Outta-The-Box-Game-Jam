@@ -3,26 +3,35 @@
 [ext_resource type="Texture2D" uid="uid://dgr2rrep0qv38" path="res://Assets/screen.png" id="1_ko2s7"]
 [ext_resource type="Texture2D" uid="uid://bi50apbotjkam" path="res://icon.svg" id="2_0dy5s"]
 [ext_resource type="Script" uid="uid://bllnwxyqo3hhy" path="res://Scripts/player.gd" id="3_efk68"]
+[ext_resource type="Texture2D" uid="uid://b7tbffnnsplj" path="res://Assets/Key.png" id="3_mma61"]
 [ext_resource type="Texture2D" uid="uid://b40pm7d5o0tkq" path="res://Assets/Player.png" id="4_f2nln"]
-[ext_resource type="Script" uid="uid://dd8tm4aogy4bu" path="res://Scripts/Sqsh&Strch.gd" id="5_efk68"]
+[ext_resource type="Script" uid="uid://df5hg1fiskivp" path="res://Scripts/Gun_collide.gd" id="4_ki7sg"]
+[ext_resource type="Script" path="res://Scripts/Sqsh&Strch.gd" id="5_efk68"]
 [ext_resource type="Texture2D" uid="uid://dsfxcadscxpr2" path="res://Assets/Enemy.png" id="6_06fis"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_efk68"]
 size = Vector2(128.00003, 129.60002)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mma61"]
+size = Vector2(7, 15)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3la1u"]
 size = Vector2(28, 28)
 
-[node name="Test" type="Node2D" unique_id=434172438]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ki7sg"]
+size = Vector2(7, 14.775383)
+
+[node name="Tutorial" type="Node2D" unique_id=434172438]
 texture_filter = 1
+metadata/_edit_horizontal_guides_ = [57.0]
 
 [node name="Screen" type="Sprite2D" parent="." unique_id=1618935059]
 position = Vector2(320, 180)
 texture = ExtResource("1_ko2s7")
 
 [node name="Floor" type="Sprite2D" parent="." unique_id=1407332337]
-position = Vector2(320, 319)
-scale = Vector2(5, 0.62499994)
+position = Vector2(526.50006, 319)
+scale = Vector2(8.226563, 0.62499994)
 texture = ExtResource("2_0dy5s")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Floor" unique_id=2071280138]
@@ -33,19 +42,19 @@ scale = Vector2(0.99999976, 1)
 shape = SubResource("RectangleShape2D_efk68")
 
 [node name="Wall" type="Sprite2D" parent="." unique_id=1467731889]
-position = Vector2(506, 181)
-scale = Vector2(0.05658564, 0.8150064)
+position = Vector2(393, 165.5802)
+scale = Vector2(0.05658564, 1.0246907)
 texture = ExtResource("2_0dy5s")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Wall" unique_id=83934913]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/StaticBody2D" unique_id=1753179195]
 position = Vector2(0, 0.7999878)
-scale = Vector2(0.99999976, 1)
+scale = Vector2(0.99999976, 1.0000001)
 shape = SubResource("RectangleShape2D_efk68")
 
 [node name="Wall2" type="Sprite2D" parent="." unique_id=549686894]
-position = Vector2(442.00003, 85)
+position = Vector2(326, 116.99999)
 scale = Vector2(0.05658564, 0.8150064)
 texture = ExtResource("2_0dy5s")
 
@@ -55,6 +64,65 @@ texture = ExtResource("2_0dy5s")
 position = Vector2(0, 0.7999878)
 scale = Vector2(0.99999976, 1)
 shape = SubResource("RectangleShape2D_efk68")
+
+[node name="Wall3" type="Sprite2D" parent="." unique_id=1118299344]
+position = Vector2(552, 190.0802)
+scale = Vector2(0.05658564, 1.5168782)
+texture = ExtResource("2_0dy5s")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Wall3" unique_id=2116097868]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall3/StaticBody2D" unique_id=1305628775]
+position = Vector2(0, 0.7999878)
+scale = Vector2(0.99999976, 1)
+shape = SubResource("RectangleShape2D_efk68")
+
+[node name="Wall4" type="Sprite2D" parent="." unique_id=868500894]
+position = Vector2(469.65533, 96)
+scale = Vector2(1.2446151, 0.055314198)
+texture = ExtResource("2_0dy5s")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Wall4" unique_id=1371322788]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall4/StaticBody2D" unique_id=1666174875]
+position = Vector2(0, 0.7999878)
+scale = Vector2(0.99999976, 1)
+shape = SubResource("RectangleShape2D_efk68")
+
+[node name="Wall5" type="Sprite2D" parent="." unique_id=1390402073]
+position = Vector2(196, 257.7901)
+scale = Vector2(0.35937494, 0.37172055)
+texture = ExtResource("2_0dy5s")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Wall5" unique_id=552944749]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall5/StaticBody2D" unique_id=1854662694]
+position = Vector2(0, 0.79997253)
+scale = Vector2(0.99999976, 1.0000001)
+shape = SubResource("RectangleShape2D_efk68")
+
+[node name="Wall6" type="Sprite2D" parent="." unique_id=687980474]
+position = Vector2(959.00006, 117.39505)
+scale = Vector2(0.35937494, 2.5061727)
+texture = ExtResource("2_0dy5s")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Wall6" unique_id=1695288285]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall6/StaticBody2D" unique_id=1156346394]
+position = Vector2(0, 0.79997253)
+scale = Vector2(0.99999976, 1.0000001)
+shape = SubResource("RectangleShape2D_efk68")
+
+[node name="Gun_Key" type="Sprite2D" parent="." unique_id=633701124]
+position = Vector2(565, 255)
+texture = ExtResource("3_mma61")
+
+[node name="Area2D" type="Area2D" parent="Gun_Key" unique_id=1471177350]
+script = ExtResource("4_ki7sg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gun_Key/Area2D" unique_id=1044727540]
+position = Vector2(-0.5, 2.5)
+shape = SubResource("RectangleShape2D_mma61")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1900342139]
 position = Vector2(37, 140)
@@ -75,6 +143,20 @@ max_stretch = 0.8
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_3la1u")
 
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1747968649]
+
 [node name="Enemy" type="Sprite2D" parent="." unique_id=1119490379]
 position = Vector2(235, 263)
 texture = ExtResource("6_06fis")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1712060004]
+position = Vector2(963, -58)
+texture = ExtResource("3_mma61")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D" unique_id=474098520]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D" unique_id=1844387707]
+position = Vector2(-0.6479492, 2.6123123)
+shape = SubResource("RectangleShape2D_ki7sg")
+
+[connection signal="body_entered" from="Gun_Key/Area2D" to="Player" method="_on_area_2d_body_entered"]

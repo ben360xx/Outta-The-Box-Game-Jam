@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
 @export var SPEED : float = 10.0
-@export var KICKBACK : float = 400.0
+@export var KICKBACK : float = 600.0
 @export var JUMP_VELOCITY : float = 400.0
 @export var jump :bool = true
-@export var gun :bool = true
+@export var gun :bool = false
 @export var fallGraV : float = 0.3
 @export var grav : float = 1
 var FinalGrav: float
@@ -50,3 +50,7 @@ func _physics_process(delta: float) -> void:
 	if is_on_wall() and Input.is_action_just_pressed("WALLJUMP") and jump:
 		velocity.x += -direction * 500
 		velocity.y = -600
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	gun = true 
