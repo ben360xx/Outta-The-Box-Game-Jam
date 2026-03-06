@@ -6,8 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://b7tbffnnsplj" path="res://Assets/Key.png" id="3_mma61"]
 [ext_resource type="Texture2D" uid="uid://b40pm7d5o0tkq" path="res://Assets/Player.png" id="4_f2nln"]
 [ext_resource type="Script" uid="uid://df5hg1fiskivp" path="res://Scripts/Gun_collide.gd" id="4_ki7sg"]
-[ext_resource type="Script" path="res://Scripts/Sqsh&Strch.gd" id="5_efk68"]
+[ext_resource type="Script" uid="uid://dd8tm4aogy4bu" path="res://Scripts/Sqsh&Strch.gd" id="5_efk68"]
 [ext_resource type="Texture2D" uid="uid://dsfxcadscxpr2" path="res://Assets/Enemy.png" id="6_06fis"]
+[ext_resource type="Texture2D" uid="uid://bq7a40qht0wx4" path="res://Assets/Gun.png" id="8_rxb08"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_efk68"]
 size = Vector2(128.00003, 129.60002)
@@ -139,15 +140,21 @@ texture = ExtResource("4_f2nln")
 script = ExtResource("5_efk68")
 max_stretch = 0.8
 
+[node name="Gun" type="Sprite2D" parent="Player/Sprite/Sprite" unique_id=1176884097]
+position = Vector2(11, 12)
+rotation = 0.037044674
+texture = ExtResource("8_rxb08")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=633398064]
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_3la1u")
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1747968649]
-
 [node name="Enemy" type="Sprite2D" parent="." unique_id=1119490379]
 position = Vector2(235, 263)
 texture = ExtResource("6_06fis")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1747968649]
+position = Vector2(320, 180)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1712060004]
 position = Vector2(963, -58)

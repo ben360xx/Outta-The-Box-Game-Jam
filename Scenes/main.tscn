@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://r0moookyoyr3"]
 
-[ext_resource type="PackedScene" uid="uid://dnuq5f5f6bjch" path="res://Scenes/Test.tscn" id="1_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://b6j6rqa4fqmmt" path="res://Scenes/MainMenu.tscn" id="1_bo1nx"]
 [ext_resource type="Shader" uid="uid://is0k8gta0vb2" path="res://Scripts/Transition.gdshader" id="2_bo1nx"]
+[ext_resource type="Shader" uid="uid://cm6i5gpc5ouwm" path="res://Shaders/CRT.gdshader" id="3_8gbba"]
 
 [sub_resource type="GDScript" id="GDScript_3afsx"]
 script/source = "extends Node2D
@@ -9,7 +10,8 @@ script/source = "extends Node2D
 var current_scene: Node = null
 var Next_scene: String = \"res://Scenes/Test.tscn\"
 
-@onready var anim_player: AnimationPlayer = $\"../ColorRect/AnimationPlayer\"
+@export var Menu = true
+@onready var anim_player: AnimationPlayer = $\"../Transition/AnimationPlayer\"
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -23,6 +25,8 @@ func load_scene(scene_path: String) -> void:
 
 
 func reset_scene() -> void:
+	if Menu:
+		return
 	if Next_scene == \"\":
 		return
 	load_scene(Next_scene)
@@ -113,6 +117,23 @@ _data = {
 [sub_resource type="ViewportTexture" id="ViewportTexture_yl1hm"]
 viewport_path = NodePath("CanvasLayer/SubViewportContainer/SubViewport")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jjvhh"]
+shader = ExtResource("3_8gbba")
+shader_parameter/resolution = Vector2(640, 360)
+shader_parameter/scan_line_amount = 1.0
+shader_parameter/warp_amount = 0.1
+shader_parameter/noise_amount = 0.0
+shader_parameter/interference_amount = 0.2
+shader_parameter/grille_amount = 0.1
+shader_parameter/grille_size = 1.0
+shader_parameter/vignette_amount = 0.0
+shader_parameter/vignette_intensity = 0.0
+shader_parameter/aberation_amount = 0.2000000095
+shader_parameter/roll_line_amount = 0.0
+shader_parameter/roll_speed = -8.0
+shader_parameter/scan_line_strength = -9.999999905
+shader_parameter/pixel_strength = -2.0
+
 [node name="Main" type="Node2D" unique_id=588864510]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1234170747]
@@ -143,10 +164,11 @@ render_target_update_mode = 4
 
 [node name="Manager" type="Node2D" parent="CanvasLayer/SubViewportContainer/SubViewport" unique_id=840076849]
 script = SubResource("GDScript_3afsx")
+Menu = false
 
-[node name="Test" parent="CanvasLayer/SubViewportContainer/SubViewport/Manager" unique_id=434172438 instance=ExtResource("1_bo1nx")]
+[node name="MainMenu" parent="CanvasLayer/SubViewportContainer/SubViewport/Manager" unique_id=1868582927 instance=ExtResource("1_bo1nx")]
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/SubViewportContainer/SubViewport" unique_id=1017650225]
+[node name="Transition" type="ColorRect" parent="CanvasLayer/SubViewportContainer/SubViewport" unique_id=1017650225]
 z_index = 105
 material = SubResource("ShaderMaterial_4lway")
 anchors_preset = 15
@@ -155,19 +177,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/SubViewportContainer/SubViewport/ColorRect" unique_id=1608340401]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/SubViewportContainer/SubViewport/Transition" unique_id=1608340401]
 libraries/ = SubResource("AnimationLibrary_o0i5t")
 speed_scale = 2.0
-
-[node name="BG" type="ColorRect" parent="CanvasLayer" unique_id=1581145205]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
-metadata/_edit_use_anchors_ = true
 
 [node name="Game" type="TextureRect" parent="CanvasLayer" unique_id=1524551492]
 texture_filter = 1
@@ -184,4 +196,16 @@ expand_mode = 1
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
-[connection signal="animation_finished" from="CanvasLayer/SubViewportContainer/SubViewport/ColorRect/AnimationPlayer" to="CanvasLayer/SubViewportContainer/SubViewport/Manager" method="_on_animation_player_animation_finished"]
+[node name="CRT" type="ColorRect" parent="CanvasLayer" unique_id=1581145205]
+visible = false
+material = SubResource("ShaderMaterial_jjvhh")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[connection signal="animation_finished" from="CanvasLayer/SubViewportContainer/SubViewport/Transition/AnimationPlayer" to="CanvasLayer/SubViewportContainer/SubViewport/Manager" method="_on_animation_player_animation_finished"]

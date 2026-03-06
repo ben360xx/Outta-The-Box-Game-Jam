@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dv7v6qf50y7at"]
+
+[ext_resource type="Texture2D" uid="uid://dgr2rrep0qv38" path="res://Assets/screen.png" id="1_hdmo1"]
+
+[node name="PauseMenu" type="Node2D" unique_id=2000420934]
+
+[node name="Screen" type="Sprite2D" parent="." unique_id=226010553]
+texture_filter = 1
+position = Vector2(320, 180)
+texture = ExtResource("1_hdmo1")
