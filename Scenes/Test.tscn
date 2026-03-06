@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b7tbffnnsplj" path="res://Assets/Key.png" id="3_mma61"]
 [ext_resource type="Texture2D" uid="uid://b40pm7d5o0tkq" path="res://Assets/Player.png" id="4_f2nln"]
 [ext_resource type="Script" uid="uid://df5hg1fiskivp" path="res://Scripts/Gun_collide.gd" id="4_ki7sg"]
-[ext_resource type="Script" uid="uid://dd8tm4aogy4bu" path="res://Scripts/Sqsh&Strch.gd" id="5_efk68"]
+[ext_resource type="Script" path="res://Scripts/Sqsh&Strch.gd" id="5_efk68"]
 [ext_resource type="Texture2D" uid="uid://dsfxcadscxpr2" path="res://Assets/Enemy.png" id="6_06fis"]
 [ext_resource type="Texture2D" uid="uid://bq7a40qht0wx4" path="res://Assets/Gun.png" id="8_rxb08"]
 
@@ -14,7 +14,7 @@
 size = Vector2(128.00003, 129.60002)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mma61"]
-size = Vector2(7, 15)
+size = Vector2(28, 25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3la1u"]
 size = Vector2(28, 28)
@@ -31,8 +31,8 @@ position = Vector2(320, 180)
 texture = ExtResource("1_ko2s7")
 
 [node name="Floor" type="Sprite2D" parent="." unique_id=1407332337]
-position = Vector2(526.50006, 319)
-scale = Vector2(8.226563, 0.62499994)
+position = Vector2(526.50006, 399)
+scale = Vector2(8.226563, 1.875)
 texture = ExtResource("2_0dy5s")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Floor" unique_id=2071280138]
@@ -114,22 +114,25 @@ position = Vector2(0, 0.79997253)
 scale = Vector2(0.99999976, 1.0000001)
 shape = SubResource("RectangleShape2D_efk68")
 
-[node name="Gun_Key" type="Sprite2D" parent="." unique_id=633701124]
-position = Vector2(565, 255)
-texture = ExtResource("3_mma61")
+[node name="Gun" type="Sprite2D" parent="." unique_id=633701124]
+position = Vector2(581, 256)
+texture = ExtResource("8_rxb08")
 
-[node name="Area2D" type="Area2D" parent="Gun_Key" unique_id=1471177350]
+[node name="Area2D" type="Area2D" parent="Gun" unique_id=1471177350]
 script = ExtResource("4_ki7sg")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gun_Key/Area2D" unique_id=1044727540]
-position = Vector2(-0.5, 2.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gun/Area2D" unique_id=1044727540]
+position = Vector2(3, 2.5)
 shape = SubResource("RectangleShape2D_mma61")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1900342139]
-position = Vector2(37, 140)
+position = Vector2(29, 260)
 up_direction = Vector2(0, 1)
 script = ExtResource("3_efk68")
 fallGraV = 1.6
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1747968649]
+position = Vector2(227, -66)
 
 [node name="Sprite" type="Node2D" parent="Player" unique_id=995100562]
 position = Vector2(0, 16)
@@ -153,17 +156,15 @@ shape = SubResource("RectangleShape2D_3la1u")
 position = Vector2(235, 263)
 texture = ExtResource("6_06fis")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1747968649]
-position = Vector2(320, 180)
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1712060004]
+[node name="Key" type="Sprite2D" parent="." unique_id=1712060004]
 position = Vector2(963, -58)
 texture = ExtResource("3_mma61")
 
-[node name="Area2D" type="Area2D" parent="Sprite2D" unique_id=474098520]
+[node name="Key_Area" type="Area2D" parent="Key" unique_id=474098520]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D" unique_id=1844387707]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Key/Key_Area" unique_id=1844387707]
 position = Vector2(-0.6479492, 2.6123123)
 shape = SubResource("RectangleShape2D_ki7sg")
 
-[connection signal="body_entered" from="Gun_Key/Area2D" to="Player" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Gun/Area2D" to="Player" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Key/Key_Area" to="Player" method="_on_key_area_body_entered"]

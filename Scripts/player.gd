@@ -15,10 +15,8 @@ var FinalGrav: float
 func _ready() -> void:
 	up_direction = Vector2.UP
 	FinalGrav = grav
-
-
+	get_node("Sprite/Sprite/Gun").hide()
 func _physics_process(delta: float) -> void:
-
 	# Gravity
 	if not is_on_floor():
 		if velocity.y > 0:
@@ -73,3 +71,10 @@ func _physics_process(delta: float) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	gun = true
+	get_node("Sprite/Sprite/Gun").show()
+	get_parent().get_node("Gun").queue_free()
+
+
+func _on_key_area_body_entered(body: Node2D) -> void:
+	var scene = load("res://Scenes/Scolding.tscn")
+	scene.instantiate()

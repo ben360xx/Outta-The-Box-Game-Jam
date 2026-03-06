@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://b5nopl7vaei8n"]
+
+[node name="Node2D" type="Node2D" unique_id=677316196]
+
+[node name="Label" type="Label" parent="." unique_id=2008480464]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "You weren't supposed to have that. I can't have anymore sequence breaks"
+autowrap_mode = 3
