@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var JUMP_VELOCITY : float = 400.0
 @export var jump :bool = true
 @export var walljump :bool = true
+@export var invertMovement :bool = false
 @export var gun :bool = false
 @export var fallGraV : float = 0.3
 @export var grav : float = 1
@@ -52,12 +53,20 @@ func _physics_process(delta: float) -> void:
 
 
 	# Horizontal movement
-	var direction := Input.get_axis("LEFT", "RIGHT")
+	if !invertMovement: 
+		var direction := Input.get_axis("LEFT", "RIGHT")
 
-	if direction != 0:
-		velocity.x = direction * SPEED
+		if direction != 0:
+			velocity.x = direction * SPEED
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		var direction := Input.get_axis("LEFT", "RIGHT")
+
+		if direction != 0:
+			velocity.x = -direction * SPEED
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
 
 
 	# Gun Kickback
@@ -68,7 +77,6 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	gun = true
 	get_node("Sprite/Sprite/Gun").show()
@@ -76,5 +84,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 
 func _on_key_area_body_entered(body: Node2D) -> void:
-	var scene = load("res://Scenes/Scolding.tscn")
-	scene.instantiate()
+	print()
+
+
+func _on_sign_passed(body: Node2D) -> void:
+	invertMovement=!invertMovement # Replace with function body.
