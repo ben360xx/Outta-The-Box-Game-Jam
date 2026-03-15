@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var SPEED : float = 200.0
 @export var KICKBACK : float = 600.0
 @export var JUMP_VELOCITY : float = 400.0
-@export var jump :bool = true
+@export var jump :bool = false
 @export var walljump :bool = true
 @export var invertMovement :bool = false
 @export var gun :bool = false
@@ -71,7 +71,7 @@ func _physics_process(delta: float) -> void:
 
 	# Gun Kickback
 	if Input.is_action_just_pressed("SHOOT") and gun:
-		var mouse_direction = global_position.direction_to(get_global_mouse_position())
+		var mouse_direction = global_position.direction_to(get_local_mouse_position())
 		velocity = -mouse_direction * KICKBACK
 
 
@@ -86,6 +86,5 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func _on_key_area_body_entered(body: Node2D) -> void:
 	print()
 
-
-func _on_sign_passed(body: Node2D) -> void:
-	invertMovement=!invertMovement # Replace with function body.
+func _on_pass_jump_sign(body: Node2D) -> void:
+	jump = !jump # Replace with function body.

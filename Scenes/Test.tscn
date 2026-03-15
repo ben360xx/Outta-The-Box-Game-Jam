@@ -22,8 +22,8 @@ size = Vector2(28, 28)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ki7sg"]
 size = Vector2(7, 14.775383)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kq4yt"]
-size = Vector2(18, 278)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxb08"]
+size = Vector2(20, 161)
 
 [node name="Tutorial" type="Node2D" unique_id=434172438]
 texture_filter = 1
@@ -169,15 +169,15 @@ position = Vector2(-0.6479492, 2.6123123)
 shape = SubResource("RectangleShape2D_ki7sg")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1232041551]
-position = Vector2(280, 264)
+position = Vector2(112, 273)
 texture = ExtResource("9_rxb08")
 
-[node name="Area2D" type="Area2D" parent="Sprite2D" unique_id=1407534580]
+[node name="Area2D" type="Area2D" parent="Sprite2D" unique_id=1100811893]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D" unique_id=746133325]
-position = Vector2(1, -129)
-shape = SubResource("RectangleShape2D_kq4yt")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D" unique_id=1561532864]
+position = Vector2(0, -70.5)
+shape = SubResource("RectangleShape2D_rxb08")
 
 [connection signal="body_entered" from="Gun/Area2D" to="Player" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Key/Key_Area" to="Player" method="_on_key_area_body_entered"]
-[connection signal="body_exited" from="Sprite2D/Area2D" to="Player" method="_on_sign_passed"]
+[connection signal="body_exited" from="Sprite2D/Area2D" to="Player" method="_on_pass_jump_sign"]
