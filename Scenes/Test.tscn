@@ -8,7 +8,12 @@
 [ext_resource type="Script" path="res://Scripts/Sqsh&Strch.gd" id="5_efk68"]
 [ext_resource type="Texture2D" uid="uid://dsfxcadscxpr2" path="res://Assets/Enemy.png" id="6_06fis"]
 [ext_resource type="Texture2D" uid="uid://bq7a40qht0wx4" path="res://Assets/Gun.png" id="8_rxb08"]
+<<<<<<< Updated upstream
 [ext_resource type="Texture2D" uid="uid://ctjxxgtjhph" path="res://Assets/pixil-frame-0.png" id="9_rxb08"]
+=======
+[ext_resource type="Script" uid="uid://bnk5nj6ory3x0" path="res://Scripts/gun.gd" id="9_kq4yt"]
+[ext_resource type="Texture2D" uid="uid://dim432lma4jkb" path="res://Assets/1.png" id="11_rarx8"]
+>>>>>>> Stashed changes
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_efk68"]
 size = Vector2(128.00003, 129.60002)
@@ -127,8 +132,19 @@ texture = ExtResource("8_rxb08")
 position = Vector2(3, 2.5)
 shape = SubResource("RectangleShape2D_mma61")
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1747968649]
+position = Vector2(321, 131)
+
+[node name="Enemy" type="Sprite2D" parent="Camera2D" unique_id=1443354889]
+scale = Vector2(0.195, 0.195)
+texture = ExtResource("6_06fis")
+
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1900342139]
+<<<<<<< Updated upstream
 position = Vector2(29, 260)
+=======
+position = Vector2(56, 238)
+>>>>>>> Stashed changes
 up_direction = Vector2(0, 1)
 script = ExtResource("3_efk68")
 fallGraV = 1.6
@@ -145,10 +161,13 @@ texture = ExtResource("4_f2nln")
 script = ExtResource("5_efk68")
 max_stretch = 0.8
 
-[node name="Gun" type="Sprite2D" parent="Player/Sprite/Sprite" unique_id=1176884097]
-position = Vector2(11, 12)
-rotation = 0.037044674
+[node name="Gun" type="Sprite2D" parent="Player" unique_id=1176884097]
 texture = ExtResource("8_rxb08")
+offset = Vector2(16, 0)
+script = ExtResource("9_kq4yt")
+
+[node name="Marker2D" type="Marker2D" parent="Player/Gun" unique_id=935574463]
+position = Vector2(31, -3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=633398064]
 position = Vector2(0, 2)
@@ -158,7 +177,11 @@ shape = SubResource("RectangleShape2D_3la1u")
 position = Vector2(235, 263)
 texture = ExtResource("6_06fis")
 
+<<<<<<< Updated upstream
 [node name="Key" type="Sprite2D" parent="." unique_id=1712060004]
+=======
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1712060004]
+>>>>>>> Stashed changes
 position = Vector2(963, -58)
 texture = ExtResource("3_mma61")
 
@@ -168,6 +191,7 @@ texture = ExtResource("3_mma61")
 position = Vector2(-0.6479492, 2.6123123)
 shape = SubResource("RectangleShape2D_ki7sg")
 
+<<<<<<< Updated upstream
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1232041551]
 position = Vector2(112, 273)
 texture = ExtResource("9_rxb08")
@@ -181,3 +205,12 @@ shape = SubResource("RectangleShape2D_rxb08")
 [connection signal="body_entered" from="Gun/Area2D" to="Player" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Key/Key_Area" to="Player" method="_on_key_area_body_entered"]
 [connection signal="body_exited" from="Sprite2D/Area2D" to="Player" method="_on_pass_jump_sign"]
+=======
+[node name="1" type="Sprite2D" parent="." unique_id=380588314]
+position = Vector2(121, 111)
+scale = Vector2(4.21875, 4.21875)
+texture = ExtResource("11_rarx8")
+script = ExtResource("9_kq4yt")
+
+[connection signal="body_entered" from="Gun_Key/Area2D" to="Player" method="_on_area_2d_body_entered"]
+>>>>>>> Stashed changes

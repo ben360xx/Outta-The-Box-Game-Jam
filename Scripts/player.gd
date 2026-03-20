@@ -16,7 +16,6 @@ var FinalGrav: float
 func _ready() -> void:
 	up_direction = Vector2.UP
 	FinalGrav = grav
-	get_node("Sprite/Sprite/Gun").hide()
 func _physics_process(delta: float) -> void:
 	# Gravity
 	if not is_on_floor():
@@ -29,11 +28,11 @@ func _physics_process(delta: float) -> void:
 
 
 	# Sprite Flip
+# Sprite Flip
 	if velocity.x < 0:
-		$Sprite/Sprite.scale.x=-1
+		$Sprite/Sprite.flip_h = true
 	elif velocity.x > 0:
-		$Sprite/Sprite.scale.x=1
-
+		$Sprite/Sprite.flip_h = false
 
 	# Jump
 	if Input.is_action_just_pressed("UP") and is_on_floor() and jump:
@@ -69,18 +68,11 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 
 
-	# Gun Kickback
-	if Input.is_action_just_pressed("SHOOT") and gun:
-		var mouse_direction = global_position.direction_to(get_local_mouse_position())
-		velocity = -mouse_direction * KICKBACK
 
 
 	move_and_slide()
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	gun = true
-	get_node("Sprite/Sprite/Gun").show()
-	get_parent().get_node("Gun").queue_free()
+
 
 
 func _on_key_area_body_entered(body: Node2D) -> void:
@@ -88,3 +80,8 @@ func _on_key_area_body_entered(body: Node2D) -> void:
 
 func _on_pass_jump_sign(body: Node2D) -> void:
 	jump = !jump # Replace with function body.
+
+
+
+
+	move_and_slide()
