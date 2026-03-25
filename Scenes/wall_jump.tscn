@@ -2,16 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://bi50apbotjkam" path="res://icon.svg" id="1_662s4"]
 [ext_resource type="Texture2D" uid="uid://b7tbffnnsplj" path="res://Assets/Key.png" id="2_3w6bm"]
-[ext_resource type="Texture2D" uid="uid://bq7a40qht0wx4" path="res://Assets/Gun.png" id="3_u0xw3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yvox0"]
 size = Vector2(128.00003, 129.60002)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xqk8d"]
 size = Vector2(7, 14.775383)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2qmnv"]
-size = Vector2(28, 25)
 
 [node name="Basic Jump" type="Node2D" unique_id=2024985305]
 
@@ -28,7 +24,7 @@ scale = Vector2(0.99999976, 1)
 shape = SubResource("RectangleShape2D_yvox0")
 
 [node name="Floor2" type="Sprite2D" parent="." unique_id=115421384]
-position = Vector2(397, 321)
+position = Vector2(511.625, 316)
 scale = Vector2(1.7128909, 0.57031226)
 texture = ExtResource("1_662s4")
 
@@ -39,8 +35,20 @@ position = Vector2(0, 0.7999878)
 scale = Vector2(0.99999976, 1)
 shape = SubResource("RectangleShape2D_yvox0")
 
+[node name="Floor2" type="Sprite2D" parent="Floor2" unique_id=950344851]
+position = Vector2(-118.29416, -108.71241)
+scale = Vector2(0.076513685, 0.57031226)
+texture = ExtResource("1_662s4")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Floor2/Floor2" unique_id=137043183]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2/Floor2/StaticBody2D" unique_id=1470700550]
+position = Vector2(0, 0.7999878)
+scale = Vector2(0.99999976, 1)
+shape = SubResource("RectangleShape2D_yvox0")
+
 [node name="Key" type="Sprite2D" parent="." unique_id=1638560128]
-position = Vector2(491, 272)
+position = Vector2(605.625, 267)
 texture = ExtResource("2_3w6bm")
 
 [node name="Key_Area" type="Area2D" parent="Key" unique_id=861692227]
@@ -48,13 +56,3 @@ texture = ExtResource("2_3w6bm")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Key/Key_Area" unique_id=262814354]
 position = Vector2(-0.6479492, 2.6123123)
 shape = SubResource("RectangleShape2D_xqk8d")
-
-[node name="Gun" type="Sprite2D" parent="Key" unique_id=1555684794]
-position = Vector2(-465, -7)
-texture = ExtResource("3_u0xw3")
-
-[node name="Area2D" type="Area2D" parent="Key/Gun" unique_id=1684787249]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Key/Gun/Area2D" unique_id=1953469125]
-position = Vector2(3, 2.5)
-shape = SubResource("RectangleShape2D_2qmnv")
