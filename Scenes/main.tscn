@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://r0moookyoyr3"]
 
-[ext_resource type="PackedScene" uid="uid://b6j6rqa4fqmmt" path="res://Scenes/MainMenu.tscn" id="1_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://b40j6sjhekkh" path="res://Scenes/Tutorial.tscn" id="1_8gbba"]
 [ext_resource type="Shader" uid="uid://is0k8gta0vb2" path="res://Scripts/Transition.gdshader" id="2_bo1nx"]
 [ext_resource type="Shader" uid="uid://cm6i5gpc5ouwm" path="res://Shaders/CRT.gdshader" id="3_8gbba"]
 
@@ -154,19 +154,20 @@ scale = Vector2(0.0046045724, 0.015646677)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
+mouse_target = true
 metadata/_edit_use_anchors_ = true
 
 [node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer" unique_id=736117074]
 handle_input_locally = false
 canvas_item_default_texture_filter = 0
-size = Vector2i(640, 360)
+size = Vector2i(640, 320)
 render_target_update_mode = 4
 
 [node name="Manager" type="Node2D" parent="CanvasLayer/SubViewportContainer/SubViewport" unique_id=840076849]
 script = SubResource("GDScript_3afsx")
 Menu = false
 
-[node name="MainMenu" parent="CanvasLayer/SubViewportContainer/SubViewport/Manager" unique_id=1868582927 instance=ExtResource("1_bo1nx")]
+[node name="Test2" parent="CanvasLayer/SubViewportContainer/SubViewport/Manager" unique_id=929903980 instance=ExtResource("1_8gbba")]
 
 [node name="Transition" type="ColorRect" parent="CanvasLayer/SubViewportContainer/SubViewport" unique_id=1017650225]
 z_index = 105
@@ -192,12 +193,9 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
 texture = SubResource("ViewportTexture_yl1hm")
-expand_mode = 1
-stretch_mode = 5
-metadata/_edit_use_anchors_ = true
+stretch_mode = 6
 
 [node name="CRT" type="ColorRect" parent="CanvasLayer" unique_id=1581145205]
-visible = false
 material = SubResource("ShaderMaterial_jjvhh")
 anchors_preset = 15
 anchor_right = 1.0
