@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://b5dd5q1ai1yht"]
+
+[ext_resource type="Texture2D" uid="uid://bi50apbotjkam" path="res://icon.svg" id="1_5tlex"]
+[ext_resource type="Texture2D" uid="uid://b7tbffnnsplj" path="res://Assets/Key.png" id="2_74j8p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yvox0"]
+size = Vector2(128.00003, 129.60002)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xqk8d"]
+size = Vector2(7, 14.775383)
+
+[sub_resource type="Animation" id="Animation_p0lkd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticBody2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(382.99994, 321)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Key_Area:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(477, 272)]
+}
+
+[sub_resource type="Animation" id="Animation_5tlex"]
+resource_name = "moving_floor"
+length = 3.0333333
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticBody2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.96666664, 1.9666667, 3.0333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(382.99994, 321), Vector2(475.99997, 321), Vector2(402.99997, 321), Vector2(335, 321)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Key_Area:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.96666664, 2, 3.0333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(477, 272), Vector2(570, 272), Vector2(497.00003, 272), Vector2(429.00003, 272)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_74j8p"]
+_data = {
+&"RESET": SubResource("Animation_p0lkd"),
+&"moving_floor": SubResource("Animation_5tlex")
+}
+
+[node name="Basic Jump" type="Node2D" unique_id=2024985305]
+
+[node name="Floor" type="Sprite2D" parent="." unique_id=1191416539]
+position = Vector2(112.374985, 321.00003)
+scale = Vector2(1.7128909, 0.57031226)
+texture = ExtResource("1_5tlex")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Floor" unique_id=1431780860]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/StaticBody2D" unique_id=992730813]
+position = Vector2(0, 0.7999878)
+scale = Vector2(0.99999976, 1)
+shape = SubResource("RectangleShape2D_yvox0")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1754121361]
+position = Vector2(382.99994, 321)
+scale = Vector2(1.7128909, 0.57031226)
+
+[node name="Floor2" type="Sprite2D" parent="StaticBody2D" unique_id=115421384]
+scale = Vector2(1.0000001, 1)
+texture = ExtResource("1_5tlex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1768958176]
+position = Vector2(0, 0.7999878)
+scale = Vector2(0.99999976, 1)
+shape = SubResource("RectangleShape2D_yvox0")
+
+[node name="Key_Area" type="Area2D" parent="." unique_id=861692227]
+position = Vector2(477, 272)
+
+[node name="Key" type="Sprite2D" parent="Key_Area" unique_id=1638560128]
+texture = ExtResource("2_74j8p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Key_Area" unique_id=262814354]
+position = Vector2(-0.6479492, 2.6123123)
+shape = SubResource("RectangleShape2D_xqk8d")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1352705454]
+libraries/ = SubResource("AnimationLibrary_74j8p")

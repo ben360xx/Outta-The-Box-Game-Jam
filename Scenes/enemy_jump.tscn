@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://c5hrmxn73ldon"]
+
+[ext_resource type="Texture2D" uid="uid://bi50apbotjkam" path="res://icon.svg" id="1_n27ws"]
+[ext_resource type="Texture2D" uid="uid://dsfxcadscxpr2" path="res://Assets/Enemy.png" id="1_xnkk7"]
+[ext_resource type="Texture2D" uid="uid://b7tbffnnsplj" path="res://Assets/Key.png" id="2_3nrp6"]
+[ext_resource type="Texture2D" uid="uid://b7ovgubghc1ig" path="res://Assets/spike.png" id="3_d4xh2"]
+[ext_resource type="Texture2D" uid="uid://bq7a40qht0wx4" path="res://Assets/Gun.png" id="3_xnkk7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yvox0"]
+size = Vector2(128.00003, 129.60002)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_om1s8"]
+size = Vector2(6.7368393, 7.0137177)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xqk8d"]
+size = Vector2(7, 14.775383)
+
+[node name="Basic Jump" type="Node2D" unique_id=2024985305]
+
+[node name="Enemy" type="Sprite2D" parent="." unique_id=1696849649]
+position = Vector2(252, 260)
+scale = Vector2(0.68750185, 0.6562499)
+texture = ExtResource("1_xnkk7")
+
+[node name="Floor" type="Sprite2D" parent="." unique_id=1191416539]
+position = Vector2(251.375, 321.00003)
+scale = Vector2(3.884766, 0.57031226)
+texture = ExtResource("1_n27ws")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Floor" unique_id=1431780860]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/StaticBody2D" unique_id=992730813]
+position = Vector2(0, 0.7999878)
+scale = Vector2(0.99999976, 1)
+shape = SubResource("RectangleShape2D_yvox0")
+
+[node name="Floor2" type="Sprite2D" parent="." unique_id=1821668778]
+position = Vector2(257, 268)
+scale = Vector2(8.312502, 5.5625)
+texture = ExtResource("3_d4xh2")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Floor2" unique_id=928544813]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2/StaticBody2D" unique_id=62387359]
+position = Vector2(-0.4812317, -3.0517578e-05)
+scale = Vector2(0.9999995, 1)
+shape = SubResource("RectangleShape2D_om1s8")
+
+[node name="Key" type="Sprite2D" parent="." unique_id=1638560128]
+position = Vector2(491, 272)
+texture = ExtResource("2_3nrp6")
+
+[node name="Key_Area" type="Area2D" parent="Key" unique_id=861692227]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Key/Key_Area" unique_id=262814354]
+position = Vector2(-0.6479492, 2.6123123)
+shape = SubResource("RectangleShape2D_xqk8d")
+
+[node name="Gun" type="Sprite2D" parent="Key" unique_id=1555684794]
+position = Vector2(-465, -7)
+texture = ExtResource("3_xnkk7")
