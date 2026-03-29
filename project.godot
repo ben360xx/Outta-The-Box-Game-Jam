@@ -15,6 +15,10 @@ run/main_scene="uid://r0moookyoyr3"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[aseprite_importers]
+
+aseprite_executable_path="C:/Users/wkg75/Downloads/Aseprite-v1.3.16.1-trial-Portable/Aseprite-v1.3.16.1-trial/Aseprite.exe"
+
 [display]
 
 window/size/viewport_width=640
@@ -25,7 +29,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/ridiculous_coding/plugin.cfg")
+enabled=PackedStringArray("res://addons/nklbdev.aseprite_importers/plugin.cfg", "res://addons/ridiculous_coding/plugin.cfg")
 
 [input]
 

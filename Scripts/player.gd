@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var SPEED : float = 200.0
-@export var KICKBACK : float = 600.0
+@export var KICKBACK : float = 700.0
 @export var JUMP_VELOCITY : float = 400.0
 @export var jump :bool = false
 @export var walljump :bool = true
@@ -48,7 +48,7 @@ func _physics_process(delta: float) -> void:
 
 		var wall_normal = get_wall_normal()
 
-		velocity.y = -JUMP_VELOCITY
+		velocity.y += -JUMP_VELOCITY
 		velocity.x = wall_normal.x * SPEED * 2
 
 
@@ -71,8 +71,9 @@ func _physics_process(delta: float) -> void:
 
 	# Gun Kickback
 	if Input.is_action_just_pressed("SHOOT") and gun:
-		var mouse_direction = global_position.direction_to(get_local_mouse_position())
-		velocity = -mouse_direction * KICKBACK
+		var mouse_direction = global_position.direction_to(get_global_mouse_position())
+		velocity += -mouse_direction * KICKBACK
+		get_parent().get_node("GunSound").play()
 
 
 	move_and_slide()
@@ -88,3 +89,9 @@ func _on_key_area_body_entered(body: Node2D) -> void:
 
 func _on_pass_jump_sign(body: Node2D) -> void:
 	jump = !jump # Replace with function body.
+
+
+func _on_no_jump_gun_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	gun = true
+	get_node("Sprite/Sprite/Gun").show()
+	get_parent().get_node("Gun").queue_free()
