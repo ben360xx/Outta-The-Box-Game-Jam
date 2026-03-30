@@ -17,7 +17,8 @@ var FinalGrav: float
 func _ready() -> void:
 	up_direction = Vector2.UP
 	FinalGrav = grav
-
+	if not gun:
+		get_node("Gun").hide()
 func _physics_process(delta: float) -> void:
 	# Gravity
 	if not is_on_floor():
@@ -81,7 +82,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	gun = true
-	get_node("Sprite/Sprite/Gun").show()
+	get_node("Gun").show()
 	get_parent().get_node("Gun").queue_free()
 
 
@@ -90,9 +91,3 @@ func _on_key_area_body_entered(body: Node2D) -> void:
 
 func _on_pass_jump_sign(body: Node2D) -> void:
 	jump = !jump # Replace with function body.
-
-
-func _on_no_jump_gun_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
-	gun = true
-	get_node("Sprite/Sprite/Gun").show()
-	get_parent().get_node("Gun").queue_free()

@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://bllnwxyqo3hhy" path="res://Scripts/player.gd" id="7_w0iy2"]
 [ext_resource type="Script" uid="uid://bmj8x1tpqkk1" path="res://Scenes/temp.gd" id="8_vv0ms"]
 [ext_resource type="Script" uid="uid://dd8tm4aogy4bu" path="res://Scripts/Sqsh&Strch.gd" id="9_hmkhd"]
+[ext_resource type="Texture2D" uid="uid://b7tbffnnsplj" path="res://Assets/Key.png" id="9_hxa32"]
+[ext_resource type="AudioStream" uid="uid://3v4skbtca271" path="res://Assets/Sound/Shooting1.wav" id="10_dlght"]
 [ext_resource type="Script" uid="uid://bnk5nj6ory3x0" path="res://Scripts/gun.gd" id="11_5vhnn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k6kwl"]
@@ -16,7 +18,7 @@ size = Vector2(128.00003, 129.60002)
 size = Vector2(28, 28)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hxa32"]
-size = Vector2(59, 247)
+size = Vector2(8, 16)
 
 [node name="Tutorial" type="Node2D" unique_id=929903980]
 texture_filter = 1
@@ -114,6 +116,7 @@ position = Vector2(56, 238)
 up_direction = Vector2(0, 1)
 script = ExtResource("7_w0iy2")
 jump = true
+gun = true
 fallGraV = 1.6
 
 [node name="Sprite" type="Node2D" parent="Player" unique_id=174626414]
@@ -138,13 +141,19 @@ position = Vector2(31, -6)
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_ycwcr")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=665294694]
-position = Vector2(608, 236)
+[node name="Key" type="Area2D" parent="." unique_id=665294694]
+position = Vector2(571, 267)
 script = ExtResource("8_vv0ms")
-Scene = "res://Scenes/consecutive_wall_jump.tscn"
+Scene = "res://Scenes/no_jump.tscn"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=501801452]
-position = Vector2(-19.5, -113.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Key" unique_id=501801452]
+position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_hxa32")
 
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[node name="Sprite2D" type="Sprite2D" parent="Key" unique_id=197131677]
+texture = ExtResource("9_hxa32")
+
+[node name="GunSound" type="AudioStreamPlayer" parent="." unique_id=1391878806]
+stream = ExtResource("10_dlght")
+
+[connection signal="body_entered" from="Key" to="Key" method="_on_body_entered"]

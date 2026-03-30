@@ -2,6 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://bi50apbotjkam" path="res://icon.svg" id="1_5tlex"]
 [ext_resource type="Texture2D" uid="uid://b7tbffnnsplj" path="res://Assets/Key.png" id="2_74j8p"]
+[ext_resource type="Script" uid="uid://bmj8x1tpqkk1" path="res://Scenes/temp.gd" id="2_131qa"]
+[ext_resource type="Script" uid="uid://bllnwxyqo3hhy" path="res://Scripts/player.gd" id="3_26ars"]
+[ext_resource type="Texture2D" uid="uid://b40pm7d5o0tkq" path="res://Assets/Player.png" id="4_131qa"]
+[ext_resource type="Script" uid="uid://dd8tm4aogy4bu" path="res://Scripts/Sqsh&Strch.gd" id="5_lj7dn"]
+[ext_resource type="Texture2D" uid="uid://b36lc87772y5c" path="res://Assets/Gun.png" id="6_xkf07"]
+[ext_resource type="Script" uid="uid://bnk5nj6ory3x0" path="res://Scripts/gun.gd" id="7_1yuxv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yvox0"]
 size = Vector2(128.00003, 129.60002)
@@ -71,6 +77,9 @@ _data = {
 &"moving_floor": SubResource("Animation_5tlex")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qt6pd"]
+size = Vector2(28, 28)
+
 [node name="Basic Jump" type="Node2D" unique_id=2024985305]
 
 [node name="Floor" type="Sprite2D" parent="." unique_id=1191416539]
@@ -100,6 +109,8 @@ shape = SubResource("RectangleShape2D_yvox0")
 
 [node name="Key_Area" type="Area2D" parent="." unique_id=861692227]
 position = Vector2(477, 272)
+script = ExtResource("2_131qa")
+Scene = "res://Scenes/wall_jump.tscn"
 
 [node name="Key" type="Sprite2D" parent="Key_Area" unique_id=1638560128]
 texture = ExtResource("2_74j8p")
@@ -109,4 +120,38 @@ position = Vector2(-0.6479492, 2.6123123)
 shape = SubResource("RectangleShape2D_xqk8d")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1352705454]
+reset_on_save = false
 libraries/ = SubResource("AnimationLibrary_74j8p")
+autoplay = &"moving_floor"
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1343130871]
+z_index = 1
+position = Vector2(83, 239)
+up_direction = Vector2(0, 1)
+script = ExtResource("3_26ars")
+walljump = false
+fallGraV = 1.6
+
+[node name="Sprite" type="Node2D" parent="Player" unique_id=838592306]
+position = Vector2(0, 16)
+
+[node name="Sprite" type="Sprite2D" parent="Player/Sprite" unique_id=443524411]
+position = Vector2(0, -16)
+texture = ExtResource("4_131qa")
+script = ExtResource("5_lj7dn")
+max_stretch = 0.8
+
+[node name="Gun" type="Sprite2D" parent="Player" unique_id=1905144085]
+position = Vector2(1, 6)
+texture = ExtResource("6_xkf07")
+offset = Vector2(16, 0)
+script = ExtResource("7_1yuxv")
+
+[node name="Marker2D" type="Marker2D" parent="Player/Gun" unique_id=1960622311]
+position = Vector2(31, -6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1300044442]
+position = Vector2(11, 3)
+shape = SubResource("RectangleShape2D_qt6pd")
+
+[connection signal="body_entered" from="Key_Area" to="Key_Area" method="_on_body_entered"]
