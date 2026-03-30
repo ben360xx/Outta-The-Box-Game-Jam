@@ -18,6 +18,9 @@ size = Vector2(128.00003, 129.60002)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qkbhd"]
 size = Vector2(7, 14.775383)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_go456"]
+size = Vector2(540, 50)
+
 [node name="Basic Jump" type="Node2D" unique_id=2024985305]
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=353233948]
@@ -87,7 +90,7 @@ scale = Vector2(0.99999976, 1)
 shape = SubResource("RectangleShape2D_yvox0")
 
 [node name="Key_Area" type="Area2D" parent="." unique_id=2111255384]
-position = Vector2(601, 269)
+position = Vector2(543, 269)
 script = ExtResource("2_k2k4y")
 Scene = "res://Scenes/consecutive_wall_jump.tscn"
 
@@ -98,4 +101,14 @@ texture = ExtResource("2_3w6bm")
 position = Vector2(-0.6479492, 2.6123123)
 shape = SubResource("RectangleShape2D_qkbhd")
 
+[node name="Area2D" type="Area2D" parent="." unique_id=518029405]
+position = Vector2(-158, 300)
+script = ExtResource("2_k2k4y")
+Scene = "res://Scenes/wall_jump.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2055261708]
+position = Vector2(456, 92)
+shape = SubResource("RectangleShape2D_go456")
+
 [connection signal="body_entered" from="Key_Area" to="Key_Area" method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

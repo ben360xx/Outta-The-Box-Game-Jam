@@ -15,6 +15,9 @@ size = Vector2(128.00003, 129.60002)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qye0t"]
 size = Vector2(7, 14.775383)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ot1x"]
+size = Vector2(540, 50)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_78hvn"]
 size = Vector2(28, 28)
 
@@ -65,13 +68,13 @@ texture = ExtResource("1_ll41j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor3/StaticBody2D" unique_id=1928718917]
 position = Vector2(0, 0.7999878)
-scale = Vector2(0.99999976, 1)
+scale = Vector2(0.99999976, 0.99999994)
 shape = SubResource("RectangleShape2D_yvox0")
 
 [node name="Key_Area" type="Area2D" parent="." unique_id=923516126]
-position = Vector2(622, 263)
+position = Vector2(546, 269)
 script = ExtResource("2_ll41j")
-Scene = "res://Scenes/consecutive_wall_jump.tscn"
+Scene = "res://Scenes/EndMenu.tscn"
 
 [node name="Key" type="Sprite2D" parent="Key_Area" unique_id=1482954477]
 texture = ExtResource("2_qye0t")
@@ -79,6 +82,15 @@ texture = ExtResource("2_qye0t")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Key_Area" unique_id=939213987]
 position = Vector2(-0.6479492, 2.6123123)
 shape = SubResource("RectangleShape2D_qye0t")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1854532231]
+position = Vector2(334, 455.82684)
+script = ExtResource("2_ll41j")
+Scene = "res://Scenes/consecutive_wall_jump.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=934917758]
+position = Vector2(79, -60.826843)
+shape = SubResource("RectangleShape2D_4ot1x")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=2038536506]
 z_index = 1
@@ -111,3 +123,4 @@ position = Vector2(11, 3)
 shape = SubResource("RectangleShape2D_78hvn")
 
 [connection signal="body_entered" from="Key_Area" to="Key_Area" method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

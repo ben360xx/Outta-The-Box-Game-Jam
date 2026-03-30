@@ -23,6 +23,9 @@ size = Vector2(28, 28)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6x4kq"]
 size = Vector2(8, 16)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7au8e"]
+size = Vector2(540, 50)
+
 [node name="Basic Jump" type="Node2D" unique_id=2024985305]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=988977271]
@@ -124,5 +127,15 @@ shape = SubResource("RectangleShape2D_6x4kq")
 [node name="Sprite2D" type="Sprite2D" parent="Key" unique_id=2095731962]
 texture = ExtResource("2_qkbhd")
 
+[node name="Area2D" type="Area2D" parent="." unique_id=776350375]
+position = Vector2(-158, 300)
+script = ExtResource("9_1uy8f")
+Scene = "res://Scenes/no_jump.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=191683456]
+position = Vector2(456, 92)
+shape = SubResource("RectangleShape2D_7au8e")
+
 [connection signal="body_entered" from="Gun/Area2D" to="Player" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Key" to="Key" method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

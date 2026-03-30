@@ -80,6 +80,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qt6pd"]
 size = Vector2(28, 28)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_131qa"]
+size = Vector2(498, 50)
+
 [node name="Basic Jump" type="Node2D" unique_id=2024985305]
 
 [node name="Floor" type="Sprite2D" parent="." unique_id=1191416539]
@@ -154,4 +157,14 @@ position = Vector2(31, -6)
 position = Vector2(11, 3)
 shape = SubResource("RectangleShape2D_qt6pd")
 
+[node name="Area2D" type="Area2D" parent="." unique_id=1913887341]
+position = Vector2(250, 401)
+script = ExtResource("2_131qa")
+Scene = "res://Scenes/moveing_floor.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=420014702]
+position = Vector2(-2, -15)
+shape = SubResource("RectangleShape2D_131qa")
+
 [connection signal="body_entered" from="Key_Area" to="Key_Area" method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
