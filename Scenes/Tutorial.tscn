@@ -5,14 +5,18 @@
 [ext_resource type="Texture2D" uid="uid://gnnvic14xrj7" path="res://Assets/Meta.png" id="4_x7a1n"]
 [ext_resource type="Texture2D" uid="uid://b36lc87772y5c" path="res://Assets/Gun.png" id="6_x7a1n"]
 [ext_resource type="Script" uid="uid://bllnwxyqo3hhy" path="res://Scripts/player.gd" id="7_w0iy2"]
+[ext_resource type="Script" uid="uid://bmj8x1tpqkk1" path="res://Scenes/temp.gd" id="8_vv0ms"]
 [ext_resource type="Script" uid="uid://dd8tm4aogy4bu" path="res://Scripts/Sqsh&Strch.gd" id="9_hmkhd"]
-[ext_resource type="Script" path="res://Scripts/gun.gd" id="11_5vhnn"]
+[ext_resource type="Script" uid="uid://bnk5nj6ory3x0" path="res://Scripts/gun.gd" id="11_5vhnn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k6kwl"]
 size = Vector2(128.00003, 129.60002)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ycwcr"]
 size = Vector2(28, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hxa32"]
+size = Vector2(59, 247)
 
 [node name="Tutorial" type="Node2D" unique_id=929903980]
 texture_filter = 1
@@ -133,3 +137,14 @@ position = Vector2(31, -6)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1959658794]
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_ycwcr")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=665294694]
+position = Vector2(608, 236)
+script = ExtResource("8_vv0ms")
+Scene = "res://Scenes/consecutive_wall_jump.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=501801452]
+position = Vector2(-19.5, -113.5)
+shape = SubResource("RectangleShape2D_hxa32")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

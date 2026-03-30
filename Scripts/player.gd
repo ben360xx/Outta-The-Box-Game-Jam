@@ -10,13 +10,14 @@ extends CharacterBody2D
 @export var fallGraV : float = 0.3
 @export var grav : float = 1
 var FinalGrav: float
+@onready var manager: Node2D = $"../.."
 
 @onready var anim: Sprite2D = $Sprite/Sprite
 
 func _ready() -> void:
 	up_direction = Vector2.UP
 	FinalGrav = grav
-	get_node("Sprite/Sprite/Gun").hide()
+
 func _physics_process(delta: float) -> void:
 	# Gravity
 	if not is_on_floor():
