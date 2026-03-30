@@ -1,13 +1,16 @@
 [gd_scene format=3 uid="uid://b5dd5q1ai1yht"]
 
-[ext_resource type="Texture2D" uid="uid://bi50apbotjkam" path="res://icon.svg" id="1_5tlex"]
+[ext_resource type="Texture2D" uid="uid://cmpi2poxgpgyp" path="res://Assets/WarehouseTileSet.png" id="1_xkf07"]
 [ext_resource type="Texture2D" uid="uid://b7tbffnnsplj" path="res://Assets/Key.png" id="2_74j8p"]
 [ext_resource type="Script" uid="uid://bmj8x1tpqkk1" path="res://Scenes/temp.gd" id="2_131qa"]
 [ext_resource type="Script" uid="uid://bllnwxyqo3hhy" path="res://Scripts/player.gd" id="3_26ars"]
+[ext_resource type="Texture2D" uid="uid://v1nysdk5ujqa" path="res://Assets/gamejamBack.jpg" id="4_1yuxv"]
 [ext_resource type="Texture2D" uid="uid://b40pm7d5o0tkq" path="res://Assets/Player.png" id="4_131qa"]
 [ext_resource type="Script" uid="uid://dd8tm4aogy4bu" path="res://Scripts/Sqsh&Strch.gd" id="5_lj7dn"]
 [ext_resource type="Texture2D" uid="uid://b36lc87772y5c" path="res://Assets/Gun.png" id="6_xkf07"]
 [ext_resource type="Script" uid="uid://bnk5nj6ory3x0" path="res://Scripts/gun.gd" id="7_1yuxv"]
+[ext_resource type="AudioStream" uid="uid://b11aabqmbbwt6" path="res://Assets/Sound/JumpSfx.wav" id="9_lj7dn"]
+[ext_resource type="AudioStream" uid="uid://b02k4m77yudng" path="res://Assets/Sound/Warehouse Level Theme.wav" id="10_xkf07"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yvox0"]
 size = Vector2(128.00003, 129.60002)
@@ -85,14 +88,18 @@ size = Vector2(498, 50)
 
 [node name="Basic Jump" type="Node2D" unique_id=2024985305]
 
-[node name="Floor" type="Sprite2D" parent="." unique_id=1191416539]
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1431780860]
 position = Vector2(112.374985, 321.00003)
 scale = Vector2(1.7128909, 0.57031226)
-texture = ExtResource("1_5tlex")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Floor" unique_id=1431780860]
+[node name="Floor" type="Sprite2D" parent="StaticBody2D2" unique_id=1191416539]
+position = Vector2(-1.094635, -2.6301918)
+scale = Vector2(3.9224617, 3.8904116)
+texture = ExtResource("1_xkf07")
+region_enabled = true
+region_rect = Rect2(0, 32, 32, 32)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/StaticBody2D" unique_id=992730813]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=992730813]
 position = Vector2(0, 0.7999878)
 scale = Vector2(0.99999976, 1)
 shape = SubResource("RectangleShape2D_yvox0")
@@ -102,8 +109,11 @@ position = Vector2(382.99994, 321)
 scale = Vector2(1.7128909, 0.57031226)
 
 [node name="Floor2" type="Sprite2D" parent="StaticBody2D" unique_id=115421384]
-scale = Vector2(1.0000001, 1)
-texture = ExtResource("1_5tlex")
+position = Vector2(-0.2918663, -1.7534275)
+scale = Vector2(3.9589493, 3.9452064)
+texture = ExtResource("1_xkf07")
+region_enabled = true
+region_rect = Rect2(0, 32, 32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1768958176]
 position = Vector2(0, 0.7999878)
@@ -165,6 +175,25 @@ Scene = "res://Scenes/moveing_floor.tscn"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=420014702]
 position = Vector2(-2, -15)
 shape = SubResource("RectangleShape2D_131qa")
+
+[node name="Label" type="Label" parent="." unique_id=163742121]
+offset_left = 173.0
+offset_top = 98.0
+offset_right = 397.0
+offset_bottom = 121.0
+text = "I GOT RID OF THAT PESKY GUN"
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="." unique_id=1179214035]
+stream = ExtResource("9_lj7dn")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=102939235]
+stream = ExtResource("10_xkf07")
+autoplay = true
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1100686131]
+z_index = -1
+position = Vector2(316, 172)
+texture = ExtResource("4_1yuxv")
 
 [connection signal="body_entered" from="Key_Area" to="Key_Area" method="_on_body_entered"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://b40j6sjhekkh"]
 
 [ext_resource type="Texture2D" uid="uid://dgr2rrep0qv38" path="res://Assets/screen.png" id="2_vmk76"]
-[ext_resource type="Texture2D" uid="uid://bi50apbotjkam" path="res://icon.svg" id="3_1xicg"]
+[ext_resource type="Texture2D" uid="uid://cmtjnmp35r6f" path="res://Assets/rocknormal.png" id="3_m35rq"]
+[ext_resource type="Texture2D" uid="uid://c8vq66drjm34n" path="res://Assets/rockbottom.png" id="3_sgy12"]
 [ext_resource type="Texture2D" uid="uid://gnnvic14xrj7" path="res://Assets/Meta.png" id="4_x7a1n"]
 [ext_resource type="Texture2D" uid="uid://b36lc87772y5c" path="res://Assets/Gun.png" id="6_x7a1n"]
 [ext_resource type="Script" uid="uid://bllnwxyqo3hhy" path="res://Scripts/player.gd" id="7_w0iy2"]
@@ -10,6 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://b7tbffnnsplj" path="res://Assets/Key.png" id="9_hxa32"]
 [ext_resource type="AudioStream" uid="uid://3v4skbtca271" path="res://Assets/Sound/Shooting1.wav" id="10_dlght"]
 [ext_resource type="Script" uid="uid://bnk5nj6ory3x0" path="res://Scripts/gun.gd" id="11_5vhnn"]
+[ext_resource type="AudioStream" uid="uid://cthaq84fj8w6r" path="res://Assets/Sound/Forest Level Theme.wav" id="12_5gw1s"]
+[ext_resource type="Texture2D" uid="uid://cgjot7ktwiy1q" path="res://Assets/forestbg.png" id="12_sgy12"]
+[ext_resource type="Script" uid="uid://c45814wlp65mx" path="res://Scenes/label.gd" id="13_sgy12"]
+[ext_resource type="AudioStream" uid="uid://b11aabqmbbwt6" path="res://Assets/Sound/JumpSfx.wav" id="15_brn58"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k6kwl"]
 size = Vector2(128.00003, 129.60002)
@@ -20,6 +25,9 @@ size = Vector2(28, 28)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hxa32"]
 size = Vector2(8, 16)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m35rq"]
+size = Vector2(28, 25)
+
 [node name="Tutorial" type="Node2D" unique_id=929903980]
 texture_filter = 1
 
@@ -27,96 +35,109 @@ texture_filter = 1
 position = Vector2(320, 180)
 texture = ExtResource("2_vmk76")
 
-[node name="Floor" type="Sprite2D" parent="." unique_id=1734010496]
-position = Vector2(526.50006, 319)
-scale = Vector2(8.226563, 0.62499994)
-texture = ExtResource("3_1xicg")
+[node name="StaticBody2D7" type="StaticBody2D" parent="." unique_id=1474338265]
+position = Vector2(327.50003, 319)
+scale = Vector2(5.117188, 0.62499994)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Floor" unique_id=1474338265]
+[node name="Floor" type="Sprite2D" parent="StaticBody2D7" unique_id=1734010496]
+position = Vector2(-1.367945, 5.599983)
+scale = Vector2(3.8900762, 4.2500014)
+texture = ExtResource("3_m35rq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/StaticBody2D" unique_id=337038638]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D7" unique_id=337038638]
 position = Vector2(0, 0.7999878)
 scale = Vector2(0.99999976, 1)
 shape = SubResource("RectangleShape2D_k6kwl")
 
-[node name="Wall" type="Sprite2D" parent="." unique_id=1731867150]
-position = Vector2(393, 165.5802)
+[node name="StaticBody2D6" type="StaticBody2D" parent="." unique_id=1864673962]
+position = Vector2(292.6215, 157.74062)
 scale = Vector2(0.05658564, 1.0246907)
-texture = ExtResource("3_1xicg")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Wall" unique_id=1864673962]
+[node name="Wall" type="Sprite2D" parent="StaticBody2D6" unique_id=1731867150]
+position = Vector2(6.6892443, -0.2348175)
+scale = Vector2(3.3135536, 3.8731203)
+texture = ExtResource("3_sgy12")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/StaticBody2D" unique_id=226693251]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6" unique_id=226693251]
 position = Vector2(0, 0.7999878)
 scale = Vector2(0.99999976, 1.0000001)
 shape = SubResource("RectangleShape2D_k6kwl")
 
-[node name="Wall2" type="Sprite2D" parent="." unique_id=407390201]
-position = Vector2(326, 116.99999)
+[node name="StaticBody2D5" type="StaticBody2D" parent="." unique_id=347896060]
+position = Vector2(225.62149, 109.16041)
 scale = Vector2(0.05658564, 0.8150064)
-texture = ExtResource("3_1xicg")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Wall2" unique_id=347896060]
+[node name="Wall2" type="Sprite2D" parent="StaticBody2D5" unique_id=407390201]
+position = Vector2(6.6892204, 1.6436578)
+scale = Vector2(3.3135662, 3.9493563)
+texture = ExtResource("3_sgy12")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2/StaticBody2D" unique_id=1816332831]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5" unique_id=1816332831]
 position = Vector2(0, 0.7999878)
 scale = Vector2(0.99999976, 1)
 shape = SubResource("RectangleShape2D_k6kwl")
 
-[node name="Wall3" type="Sprite2D" parent="." unique_id=2100702035]
-position = Vector2(552, 190.0802)
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=864880252]
+position = Vector2(451.6215, 182.24062)
 scale = Vector2(0.05658564, 1.5168782)
-texture = ExtResource("3_1xicg")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Wall3" unique_id=864880252]
+[node name="Wall3" type="Sprite2D" parent="StaticBody2D4" unique_id=2100702035]
+position = Vector2(15.525101, -1.1474991)
+scale = Vector2(3.8658323, 3.8936877)
+texture = ExtResource("3_m35rq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall3/StaticBody2D" unique_id=22680669]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=22680669]
 position = Vector2(0, 0.7999878)
 scale = Vector2(0.99999976, 1)
 shape = SubResource("RectangleShape2D_k6kwl")
 
-[node name="Wall4" type="Sprite2D" parent="." unique_id=312817366]
-position = Vector2(469.65533, 96)
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1957239306]
+position = Vector2(369.2768, 88.160416)
 scale = Vector2(1.2446151, 0.055314198)
-texture = ExtResource("3_1xicg")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Wall4" unique_id=1957239306]
+[node name="Wall4" type="Sprite2D" parent="StaticBody2D3" unique_id=312817366]
+position = Vector2(-0.22241713, -2.9000568)
+scale = Vector2(3.8164413, 3.3897266)
+texture = ExtResource("3_m35rq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall4/StaticBody2D" unique_id=1781335470]
-position = Vector2(0, 0.7999878)
-scale = Vector2(0.99999976, 1)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=1781335470]
+position = Vector2(0, 0.8000488)
+scale = Vector2(0.9999999, 1)
 shape = SubResource("RectangleShape2D_k6kwl")
 
-[node name="Wall5" type="Sprite2D" parent="." unique_id=1287026892]
-position = Vector2(196, 257.7901)
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=292115284]
+position = Vector2(137.00002, 252)
 scale = Vector2(0.35937494, 0.37172055)
-texture = ExtResource("3_1xicg")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Wall5" unique_id=292115284]
+[node name="Wall5" type="Sprite2D" parent="StaticBody2D2" unique_id=1287026892]
+position = Vector2(2.7825642, 4.0352726)
+scale = Vector2(4.173914, 4.119359)
+texture = ExtResource("3_m35rq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall5/StaticBody2D" unique_id=75707480]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=75707480]
 position = Vector2(0, 0.79997253)
 scale = Vector2(0.99999976, 1.0000001)
 shape = SubResource("RectangleShape2D_k6kwl")
 
-[node name="Wall6" type="Sprite2D" parent="." unique_id=2117147715]
-position = Vector2(959.00006, 117.39505)
-scale = Vector2(0.35937494, 2.5061727)
-texture = ExtResource("3_1xicg")
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1693016446]
+position = Vector2(545, 202.69754)
+scale = Vector2(0.35937494, 1.0108988)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Wall6" unique_id=1693016446]
+[node name="Wall6" type="Sprite2D" parent="StaticBody2D" unique_id=2117147715]
+position = Vector2(-0.00019264221, 1.78302)
+scale = Vector2(4.0000043, 4.049614)
+texture = ExtResource("3_m35rq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall6/StaticBody2D" unique_id=869833656]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=869833656]
 position = Vector2(0, 0.79997253)
 scale = Vector2(0.99999976, 1.0000001)
 shape = SubResource("RectangleShape2D_k6kwl")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1100248024]
-position = Vector2(56, 238)
+position = Vector2(84, 237)
 up_direction = Vector2(0, 1)
 script = ExtResource("7_w0iy2")
 jump = true
-gun = true
 fallGraV = 1.6
 
 [node name="Sprite" type="Node2D" parent="Player" unique_id=174626414]
@@ -142,7 +163,7 @@ position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_ycwcr")
 
 [node name="Key" type="Area2D" parent="." unique_id=665294694]
-position = Vector2(571, 267)
+position = Vector2(552.99994, 120)
 script = ExtResource("8_vv0ms")
 Scene = "res://Scenes/no_jump.tscn"
 
@@ -156,4 +177,37 @@ texture = ExtResource("9_hxa32")
 [node name="GunSound" type="AudioStreamPlayer" parent="." unique_id=1391878806]
 stream = ExtResource("10_dlght")
 
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=558306575]
+stream = ExtResource("12_5gw1s")
+autoplay = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1249215507]
+z_index = -1
+position = Vector2(320, 179)
+texture = ExtResource("12_sgy12")
+
+[node name="Gun" type="Sprite2D" parent="." unique_id=83507967]
+position = Vector2(426, 58)
+texture = ExtResource("6_x7a1n")
+
+[node name="Area2D" type="Area2D" parent="Gun" unique_id=176470372]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gun/Area2D" unique_id=1102850930]
+position = Vector2(3, 2.5)
+shape = SubResource("RectangleShape2D_m35rq")
+
+[node name="Label" type="Label" parent="." unique_id=238798968]
+offset_left = 155.0
+offset_top = 12.0
+offset_right = 468.0
+offset_bottom = 35.0
+text = "YOU WEREN\"T SUPPOSED TO HAVE THAT"
+script = ExtResource("13_sgy12")
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="." unique_id=664598124]
+stream = ExtResource("15_brn58")
+
 [connection signal="body_entered" from="Key" to="Key" method="_on_body_entered"]
+[connection signal="body_entered" from="Gun/Area2D" to="Player" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Gun/Area2D" to="Player" method="_on_1st_area_2d_body_entered"]
+[connection signal="body_entered" from="Gun/Area2D" to="Label" method="_on_area_2d_body_entered"]

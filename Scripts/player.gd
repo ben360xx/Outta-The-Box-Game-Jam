@@ -38,9 +38,10 @@ func _physics_process(delta: float) -> void:
 
 
 	# Jump
-	if Input.is_action_just_pressed("UP") and is_on_floor() and jump:
-		velocity.y = -JUMP_VELOCITY
-		print("jump")
+	if Input.is_action_just_pressed("UP") and is_on_floor():
+		get_parent().get_node("JumpSound").play()
+		if jump:
+			velocity.y = -JUMP_VELOCITY
 
 
 	# Wall Jump (midair only, pushes away from wall)
@@ -91,3 +92,7 @@ func _on_key_area_body_entered(body: Node2D) -> void:
 
 func _on_pass_jump_sign(body: Node2D) -> void:
 	jump = !jump # Replace with function body.
+
+
+func _on_1st_area_2d_body_entered(body: Node2D) -> void:
+	jump = false # Replace with function body.

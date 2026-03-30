@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b7tbffnnsplj" path="res://Assets/Key.png" id="2_qkbhd"]
 [ext_resource type="Texture2D" uid="uid://b36lc87772y5c" path="res://Assets/Gun.png" id="3_jxv2s"]
 [ext_resource type="Script" uid="uid://bllnwxyqo3hhy" path="res://Scripts/player.gd" id="4_g21ot"]
+[ext_resource type="Script" uid="uid://oej8y6gidtgl" path="res://Scenes/death_reaction.gd" id="4_ur5or"]
 [ext_resource type="Texture2D" uid="uid://v1nysdk5ujqa" path="res://Assets/gamejamBack.jpg" id="5_4d1we"]
 [ext_resource type="Texture2D" uid="uid://b40pm7d5o0tkq" path="res://Assets/Player.png" id="6_od6g6"]
 [ext_resource type="Script" uid="uid://dd8tm4aogy4bu" path="res://Scripts/Sqsh&Strch.gd" id="7_7au8e"]
@@ -10,6 +11,8 @@
 [ext_resource type="AudioStream" uid="uid://3v4skbtca271" path="res://Assets/Sound/Shooting1.wav" id="8_4d1we"]
 [ext_resource type="Script" uid="uid://bmj8x1tpqkk1" path="res://Scenes/temp.gd" id="9_1uy8f"]
 [ext_resource type="Script" uid="uid://bnk5nj6ory3x0" path="res://Scripts/gun.gd" id="9_7au8e"]
+[ext_resource type="AudioStream" uid="uid://b11aabqmbbwt6" path="res://Assets/Sound/JumpSfx.wav" id="11_1uy8f"]
+[ext_resource type="AudioStream" uid="uid://b02k4m77yudng" path="res://Assets/Sound/Warehouse Level Theme.wav" id="12_6x4kq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2qmnv"]
 size = Vector2(28, 25)
@@ -28,11 +31,9 @@ size = Vector2(540, 50)
 
 [node name="Basic Jump" type="Node2D" unique_id=2024985305]
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=988977271]
-position = Vector2(288, 194)
-
-[node name="Sprite2D" type="Sprite2D" parent="Camera2D" unique_id=410166694]
+[node name="Background" type="Sprite2D" parent="." unique_id=410166694]
 z_index = -1
+position = Vector2(288, 194)
 texture = ExtResource("5_4d1we")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1848932818]
@@ -43,7 +44,7 @@ region_enabled = true
 region_rect = Rect2(0, 32, 32, 32)
 
 [node name="Gun" type="Sprite2D" parent="." unique_id=1555684794]
-position = Vector2(26, 265)
+position = Vector2(67, 266)
 texture = ExtResource("3_jxv2s")
 
 [node name="Area2D" type="Area2D" parent="Gun" unique_id=1684787249]
@@ -78,14 +79,15 @@ offset_left = 173.0
 offset_top = 98.0
 offset_right = 397.0
 offset_bottom = 121.0
-text = "NO JUMPING"
+text = "TO JAIL WITH YOU NO JUMPING"
+script = ExtResource("4_ur5or")
 
 [node name="GunSound" type="AudioStreamPlayer" parent="." unique_id=748233309]
 stream = ExtResource("8_4d1we")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1149165216]
 z_index = 1
-position = Vector2(83, 239)
+position = Vector2(131, 254)
 up_direction = Vector2(0, 1)
 script = ExtResource("4_g21ot")
 fallGraV = 1.6
@@ -136,6 +138,14 @@ Scene = "res://Scenes/no_jump.tscn"
 position = Vector2(456, 92)
 shape = SubResource("RectangleShape2D_7au8e")
 
+[node name="JumpSound" type="AudioStreamPlayer" parent="." unique_id=1492233809]
+stream = ExtResource("11_1uy8f")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=1066024787]
+stream = ExtResource("12_6x4kq")
+autoplay = true
+
 [connection signal="body_entered" from="Gun/Area2D" to="Player" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Key" to="Key" method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D" to="Label" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

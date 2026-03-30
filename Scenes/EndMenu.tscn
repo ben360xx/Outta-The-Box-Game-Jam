@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dgr2rrep0qv38" path="res://Assets/screen.png" id="1_u2nd0"]
 [ext_resource type="Texture2D" uid="uid://gnnvic14xrj7" path="res://Assets/Meta.png" id="2_u2nd0"]
 [ext_resource type="Texture2D" uid="uid://b36lc87772y5c" path="res://Assets/Gun.png" id="3_nkglw"]
+[ext_resource type="Texture2D" uid="uid://cgjot7ktwiy1q" path="res://Assets/forestbg.png" id="4_266kf"]
 
 [sub_resource type="Animation" id="Animation_8saeu"]
 resource_name = "Loop"
@@ -114,6 +115,9 @@ _data = {
 &"RESET": SubResource("Animation_ghw46")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_266kf"]
+font_color = Color(0, 0, 0, 1)
+
 [node name="MainMenu" type="Node2D" unique_id=1868582927]
 texture_filter = 1
 
@@ -141,6 +145,12 @@ offset_left = 306.0
 offset_top = 137.0
 offset_right = 571.0
 offset_bottom = 212.0
-text = "Congrats
+text = "Oh, you escaped
 
 Well, back to normal life, i guess"
+label_settings = SubResource("LabelSettings_266kf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1455793468]
+z_index = -1
+position = Vector2(320, 178)
+texture = ExtResource("4_266kf")

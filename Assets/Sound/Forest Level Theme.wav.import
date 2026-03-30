@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cthaq84fj8w6r"
+path="res://.godot/imported/Forest Level Theme.wav-06419bd182be060b87931d494f612804.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/Forest Level Theme.wav"
+dest_files=["res://.godot/imported/Forest Level Theme.wav-06419bd182be060b87931d494f612804.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
