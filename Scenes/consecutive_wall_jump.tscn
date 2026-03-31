@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://85fv3ag8w6fj"]
+[gd_scene format=4 uid="uid://85fv3ag8w6fj"]
 
 [ext_resource type="Texture2D" uid="uid://cmpi2poxgpgyp" path="res://Assets/WarehouseTileSet.png" id="1_gju73"]
 [ext_resource type="Script" uid="uid://bmj8x1tpqkk1" path="res://Scenes/temp.gd" id="2_ll41j"]
@@ -12,8 +12,17 @@
 [ext_resource type="AudioStream" uid="uid://b02k4m77yudng" path="res://Assets/Sound/Warehouse Level Theme.wav" id="10_gju73"]
 [ext_resource type="Texture2D" uid="uid://v1nysdk5ujqa" path="res://Assets/gamejamBack.jpg" id="11_a585q"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gju73"]
+size = Vector2(213.64343, 181.39554)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yvox0"]
-size = Vector2(128.00003, 129.60002)
+size = Vector2(138.94643, 137.49048)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a585q"]
+size = Vector2(362.13574, 217.4247)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g0gwt"]
+size = Vector2(132.08669, 128.7233)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qye0t"]
 size = Vector2(7, 14.775383)
@@ -24,71 +33,84 @@ size = Vector2(540, 50)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_78hvn"]
 size = Vector2(28, 28)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_78hvn"]
+texture = ExtResource("1_gju73")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/z_index = 2
+1:0/0 = 0
+1:0/0/z_index = 1
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+0:1/0/z_index = 1
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ohtin"]
+sources/0 = SubResource("TileSetAtlasSource_78hvn")
+
 [node name="Basic Jump" type="Node2D" unique_id=2024985305]
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=137043183]
 position = Vector2(436, 255.99998)
 scale = Vector2(0.13105959, 0.32525608)
 
-[node name="Floor4" type="Sprite2D" parent="StaticBody2D2" unique_id=950344851]
-position = Vector2(5.722046e-06, -3.0744724)
-scale = Vector2(3.8150632, 4.0352826)
-texture = ExtResource("1_gju73")
-region_enabled = true
-region_rect = Rect2(32, 0, 32, 32)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1470700550]
-position = Vector2(0, 0.7999878)
+position = Vector2(22.89038, -32.282166)
 scale = Vector2(0.99999976, 1)
-shape = SubResource("RectangleShape2D_yvox0")
+shape = SubResource("RectangleShape2D_gju73")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1431780860]
 position = Vector2(112.374985, 321.00003)
 scale = Vector2(1.7128909, 0.57031226)
 
-[node name="Floor" type="Sprite2D" parent="StaticBody2D" unique_id=1191416539]
-position = Vector2(0.6567936, 2.6300812)
-scale = Vector2(4.031926, 4.4383593)
-texture = ExtResource("1_gju73")
-region_enabled = true
-region_rect = Rect2(0, 32, 32, 32)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=992730813]
-position = Vector2(0, 0.7999878)
-scale = Vector2(0.99999976, 1)
+position = Vector2(0.36489868, -3.1452026)
 shape = SubResource("RectangleShape2D_yvox0")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=728575067]
 position = Vector2(279.99997, 247.00003)
 scale = Vector2(0.07731912, 0.2851563)
 
-[node name="Floor3" type="Sprite2D" parent="StaticBody2D3" unique_id=992907298]
-position = Vector2(6.467079, -7.6293945e-05)
-scale = Vector2(3.637514, 4.1643853)
-texture = ExtResource("1_gju73")
-region_enabled = true
-region_rect = Rect2(32, 0, 32, 32)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=1928718917]
-position = Vector2(0, 0.7999878)
-scale = Vector2(0.99999976, 0.99999994)
-shape = SubResource("RectangleShape2D_yvox0")
+position = Vector2(0.00048828125, -0.00012207031)
+scale = Vector2(0.9999998, 0.9999999)
+shape = SubResource("RectangleShape2D_a585q")
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=1754121361]
 position = Vector2(638.625, 318)
 scale = Vector2(1.7128909, 0.57031226)
 
-[node name="Floor2" type="Sprite2D" parent="StaticBody2D4" unique_id=115421384]
-position = Vector2(-2.1162949, -1.1444092e-05)
-scale = Vector2(3.940706, 3.9452064)
-texture = ExtResource("1_gju73")
-region_enabled = true
-region_rect = Rect2(0, 32, 32, 32)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=1768958176]
-position = Vector2(0, 0.7999878)
-scale = Vector2(0.99999976, 1)
-shape = SubResource("RectangleShape2D_yvox0")
+position = Vector2(-2.043335, 1.2383423)
+scale = Vector2(0.9999999, 1)
+shape = SubResource("RectangleShape2D_g0gwt")
 
 [node name="Key_Area" type="Area2D" parent="." unique_id=923516126]
 position = Vector2(546, 269)
@@ -160,6 +182,10 @@ autoplay = true
 z_index = -1
 position = Vector2(323, 176)
 texture = ExtResource("11_a585q")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=665023089]
+tile_map_data = PackedByteArray("AAARAA8AAAABAAAAAAARABAAAAABAAAAAAARAA4AAAABAAAAAAAbAA8AAAABAAAAAAAbAA4AAAABAAAAAAAbABAAAAABAAAAAAADABIAAAAAAAEAAAAFABIAAAAAAAEAAAAHABIAAAAAAAEAAAAJABIAAAAAAAEAAAALABIAAAAAAAEAAAADABUAAAAAAAEAAAAFABUAAAAAAAEAAAAHABUAAAAAAAEAAAAJABUAAAAAAAEAAAALABUAAAAAAAEAAAANABIAAAAAAAAAABAhABUAAAAAAAAAACAjABUAAAAAAAEAAAAlABUAAAAAAAEAAAAnABUAAAAAAAEAAAApABUAAAAAAAEAAAApABIAAAAAAAEAAAAnABIAAAAAAAEAAAAlABIAAAAAAAEAAAAjABIAAAAAAAEAAAAhABMAAAABAAAAAAAhABIAAAAAAAAAAAAAABQAAAABAAAAAAAAABIAAAAAAAAAAAACABIAAAAAAAEAAAAAABUAAAAAAAAAACACABUAAAAAAAEAAAANABUAAAAAAAAAADANABQAAAABAAAAAAALABQAAAABAAEAAAAJABQAAAABAAEAAAAIABQAAAABAAEAAAAGABQAAAABAAEAAAAEABQAAAABAAEAAAACABQAAAABAAEAAAAmABMAAAABAAEAAAAoABQAAAABAAEAAAAkABQAAAABAAEAAAAiABMAAAABAAEAAAA=")
+tile_set = SubResource("TileSet_ohtin")
 
 [connection signal="body_entered" from="Key_Area" to="Key_Area" method="_on_body_entered"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

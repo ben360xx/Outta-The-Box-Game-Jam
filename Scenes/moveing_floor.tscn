@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://b5dd5q1ai1yht"]
+[gd_scene format=4 uid="uid://b5dd5q1ai1yht"]
 
 [ext_resource type="Texture2D" uid="uid://cmpi2poxgpgyp" path="res://Assets/WarehouseTileSet.png" id="1_xkf07"]
 [ext_resource type="Texture2D" uid="uid://b7tbffnnsplj" path="res://Assets/Key.png" id="2_74j8p"]
@@ -12,8 +12,90 @@
 [ext_resource type="AudioStream" uid="uid://b11aabqmbbwt6" path="res://Assets/Sound/JumpSfx.wav" id="9_lj7dn"]
 [ext_resource type="AudioStream" uid="uid://b02k4m77yudng" path="res://Assets/Sound/Warehouse Level Theme.wav" id="10_xkf07"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1yuxv"]
+size = Vector2(229.12509, 65.000015)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qt6pd"]
+texture = ExtResource("1_xkf07")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_xtsew"]
+sources/0 = SubResource("TileSetAtlasSource_qt6pd")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yvox0"]
-size = Vector2(128.00003, 129.60002)
+size = Vector2(157.0001, 59.000008)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1yuxv"]
+texture = ExtResource("1_xkf07")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_qt6pd"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_1yuxv")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xqk8d"]
 size = Vector2(7, 14.775383)
@@ -90,38 +172,31 @@ size = Vector2(498, 50)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1431780860]
 position = Vector2(112.374985, 321.00003)
-scale = Vector2(1.7128909, 0.57031226)
-
-[node name="Floor" type="Sprite2D" parent="StaticBody2D2" unique_id=1191416539]
-position = Vector2(-1.094635, -2.6301918)
-scale = Vector2(3.9224617, 3.8904116)
-texture = ExtResource("1_xkf07")
-region_enabled = true
-region_rect = Rect2(0, 32, 32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=992730813]
-position = Vector2(0, 0.7999878)
+position = Vector2(36.062485, 0.7999878)
 scale = Vector2(0.99999976, 1)
-shape = SubResource("RectangleShape2D_yvox0")
+shape = SubResource("RectangleShape2D_1yuxv")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="StaticBody2D2" unique_id=2107987946]
+tile_map_data = PackedByteArray("AAAGAAAAAAABAAEAAAAEAAAAAAABAAEAAAACAAAAAAABAAEAAAAAAAAAAAABAAEAAAD+/wAAAAABAAEAAAD+//7/AAAAAAEAAAAAAP7/AAAAAAEAAAACAP7/AAAAAAEAAAAEAP7/AAAAAAEAAAAGAAIAAAAAAAEAAAAGAP7/AAAAAAEAAAAEAAIAAAAAAAEAAAACAAIAAAAAAAEAAAAAAAIAAAAAAAEAAAD+/wIAAAAAAAEAAAAIAP7/AAAAAAAAABAIAAIAAAAAAAAAADAIAAAAAAABAAAAAAD7/wAAAAABAAAAAAD7//7/AAAAAAAAAAD7/wIAAAAAAAAAACD9/wIAAAAAAAEAAAD9//7/AAAAAAEAAAD9/wAAAAABAAIAAAA=")
+tile_set = SubResource("TileSet_xtsew")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1754121361]
-position = Vector2(382.99994, 321)
-scale = Vector2(1.7128909, 0.57031226)
-
-[node name="Floor2" type="Sprite2D" parent="StaticBody2D" unique_id=115421384]
-position = Vector2(-0.2918663, -1.7534275)
-scale = Vector2(3.9589493, 3.9452064)
-texture = ExtResource("1_xkf07")
-region_enabled = true
-region_rect = Rect2(0, 32, 32, 32)
+position = Vector2(335, 321)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1768958176]
-position = Vector2(0, 0.7999878)
-scale = Vector2(0.99999976, 1)
+position = Vector2(14.5000305, -1.5)
+scale = Vector2(0.9999999, 1)
 shape = SubResource("RectangleShape2D_yvox0")
 
+[node name="TileMapLayer" type="TileMapLayer" parent="StaticBody2D" unique_id=856401520]
+tile_map_data = PackedByteArray("AAABAP//AAAAAAEAAAACAP//AAAAAAAAABACAAAAAAAAAAAAADABAAAAAAAAAAEAAAD//wAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAP//AAAAAAEAAAD/////AAAAAAEAAAD+////AAAAAAAAAAD+/wAAAAAAAAAAACA=")
+tile_set = SubResource("TileSet_qt6pd")
+use_kinematic_bodies = true
+
 [node name="Key_Area" type="Area2D" parent="." unique_id=861692227]
-position = Vector2(477, 272)
+position = Vector2(429.00003, 272)
 script = ExtResource("2_131qa")
 Scene = "res://Scenes/wall_jump.tscn"
 
@@ -192,7 +267,7 @@ autoplay = true
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1100686131]
 z_index = -1
-position = Vector2(316, 172)
+position = Vector2(869, 170)
 texture = ExtResource("4_1yuxv")
 
 [connection signal="body_entered" from="Key_Area" to="Key_Area" method="_on_body_entered"]
