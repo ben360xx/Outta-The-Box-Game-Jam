@@ -1,10 +1,11 @@
 [gd_scene format=4 uid="uid://01qb8oca3dhj"]
 
+[ext_resource type="Texture2D" uid="uid://dsxj7hgtib2ug" path="res://Assets/gamejamBack.png" id="1_ur5or"]
 [ext_resource type="Texture2D" uid="uid://b7tbffnnsplj" path="res://Assets/Key.png" id="2_qkbhd"]
 [ext_resource type="Texture2D" uid="uid://b36lc87772y5c" path="res://Assets/Gun.png" id="3_jxv2s"]
 [ext_resource type="Script" uid="uid://bllnwxyqo3hhy" path="res://Scripts/player.gd" id="4_g21ot"]
+[ext_resource type="FontFile" uid="uid://dy826rldskkym" path="res://Scenes/PixelifySans-VariableFont_wght.ttf" id="4_puvo4"]
 [ext_resource type="Script" uid="uid://oej8y6gidtgl" path="res://Scenes/death_reaction.gd" id="4_ur5or"]
-[ext_resource type="Texture2D" uid="uid://v1nysdk5ujqa" path="res://Assets/gamejamBack.jpg" id="5_4d1we"]
 [ext_resource type="Texture2D" uid="uid://b40pm7d5o0tkq" path="res://Assets/Player.png" id="6_od6g6"]
 [ext_resource type="Script" uid="uid://dd8tm4aogy4bu" path="res://Scripts/Sqsh&Strch.gd" id="7_7au8e"]
 [ext_resource type="Texture2D" uid="uid://cmpi2poxgpgyp" path="res://Assets/WarehouseTileSet.png" id="7_g21ot"]
@@ -17,12 +18,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2qmnv"]
 size = Vector2(28, 25)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4d1we"]
-size = Vector2(224, 61.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ur5or"]
-size = Vector2(229.5, 61.5)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1uy8f"]
 size = Vector2(28, 28)
 
@@ -30,53 +25,38 @@ size = Vector2(28, 28)
 size = Vector2(8, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7au8e"]
-size = Vector2(540, 50)
+size = Vector2(3303, 50)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_puvo4"]
 texture = ExtResource("7_g21ot")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 1:1/0 = 0
 2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 0:2/0 = 0
 1:2/0 = 0
 2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-4:3/0 = 0
-5:3/0 = 0
-0:4/0 = 0
-1:4/0 = 0
-2:4/0 = 0
-3:4/0 = 0
-0:5/0 = 0
-1:5/0 = 0
-2:5/0 = 0
-3:5/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_3151r"]
-sources/1 = SubResource("TileSetAtlasSource_puvo4")
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/2 = SubResource("TileSetAtlasSource_puvo4")
 
 [node name="Basic Jump" type="Node2D" unique_id=2024985305]
+position = Vector2(32, -14)
 
 [node name="Background" type="Sprite2D" parent="." unique_id=410166694]
 z_index = -1
 position = Vector2(288, 194)
-texture = ExtResource("5_4d1we")
+texture = ExtResource("1_ur5or")
 
 [node name="Gun" type="Sprite2D" parent="." unique_id=1555684794]
 position = Vector2(67, 266)
@@ -88,25 +68,12 @@ texture = ExtResource("3_jxv2s")
 position = Vector2(3, 2.5)
 shape = SubResource("RectangleShape2D_2qmnv")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1821603833]
-position = Vector2(49, 343)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1484627328]
-position = Vector2(71, -15.25)
-shape = SubResource("RectangleShape2D_4d1we")
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1931597385]
-position = Vector2(393, 339)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1164677263]
-position = Vector2(1, -26)
-shape = SubResource("RectangleShape2D_ur5or")
-
 [node name="Label" type="Label" parent="." unique_id=1726236311]
 offset_left = 173.0
 offset_top = 98.0
 offset_right = 397.0
 offset_bottom = 121.0
+theme_override_fonts/font = ExtResource("4_puvo4")
 text = "TO JAIL WITH YOU NO JUMPING"
 script = ExtResource("4_ur5or")
 
@@ -158,12 +125,12 @@ shape = SubResource("RectangleShape2D_6x4kq")
 texture = ExtResource("2_qkbhd")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=776350375]
-position = Vector2(-158, 300)
+position = Vector2(-167, 479)
 script = ExtResource("9_1uy8f")
 Scene = "res://Scenes/no_jump.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=191683456]
-position = Vector2(456, 92)
+position = Vector2(622.5, 92)
 shape = SubResource("RectangleShape2D_7au8e")
 
 [node name="JumpSound" type="AudioStreamPlayer" parent="." unique_id=1492233809]
@@ -173,8 +140,8 @@ stream = ExtResource("11_1uy8f")
 stream = ExtResource("12_6x4kq")
 autoplay = true
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=539358042]
-tile_map_data = PackedByteArray("AAAHABMAAQAAAAEAAAAJABMAAQAAAAEAAAALABMAAQAAAAEAAAANABMAAQAAAAEAAAAGABMAAQAAAAEAAAAFABMAAQAAAAEAAAADABMAAQAAAAEAAAABABMAAQAAAAEAAAANABUAAQACAAEAAAALABUAAQACAAEAAAAJABUAAQACAAEAAAAHABUAAQACAAEAAAAFABUAAQACAAEAAAADABUAAQACAAEAAAABABUAAQACAAEAAAAWABIAAQAAAAEAAAAYABIAAQAAAAEAAAAaABIAAQAAAAEAAAAcABIAAQAAAAEAAAAeABIAAQAAAAEAAAAWABQAAQABAAEAAAAYABQAAQABAAEAAAAaABQAAQABAAEAAAAcABQAAQABAAEAAAAeABQAAQABAAEAAAAUABQAAQABAAEAAAAUABIAAQAAAAEAAAASABIAAQAAAAAAAAASABQAAQABAAAAAAA=")
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2140499696]
+tile_map_data = PackedByteArray("AAAAAAkAAgAAAAAAAAAAAAoAAgAAAAAAAGABAAkAAgAAAAEAAAABAAoAAgAAAAEAAAACAAkAAgAAAAEAAAACAAoAAgAAAAEAAAADAAkAAgAAAAEAAAADAAoAAgAAAAEAAAAEAAkAAgAAAAEAAAAEAAoAAgAAAAEAAAAFAAkAAgAAAAEAAAAFAAoAAgAAAAEAAAAGAAkAAgAAAAAAAFAGAAoAAgAAAAAAADAKAAkAAgAAAAAAAAAKAAoAAgAAAAAAAGALAAkAAgAAAAEAAAALAAoAAgAAAAEAAAAMAAkAAgAAAAEAAAAMAAoAAgAAAAEAAAANAAkAAgAAAAEAAAANAAoAAgAAAAEAAAAOAAkAAgAAAAEAAAAOAAoAAgAAAAEAAAAPAAkAAgAAAAEAAAAPAAoAAgAAAAEAAAAQAAkAAgAAAAAAAFAQAAoAAgAAAAAAADD+/wsAAgAAAAAAAAD+/woAAgAAAAAAAAD+/wkAAgAAAAAAAAD+/wgAAgAAAAAAAAD+/wcAAgAAAAAAAAD+/wYAAgAAAAAAAAD+/wUAAgAAAAAAAAD+/wQAAgAAAAAAAAD+/wMAAgAAAAAAAAD+/wIAAgAAAAAAAAD+/wEAAgAAAAAAAAD+/wAAAgAAAAAAAAD+////AgAAAAAAAAD/////AgAAAAAAAAAAAP//AgAAAAAAAAABAP//AgAAAAAAAAACAP//AgAAAAAAAAADAP//AgAAAAAAAAAEAP//AgAAAAAAAAAFAP//AgAAAAAAAAAGAP//AgAAAAAAAAAHAP//AgAAAAAAAAAIAP//AgAAAAAAAAAJAP//AgAAAAAAAAAKAP//AgAAAAAAAAALAP//AgAAAAAAAAAMAP//AgAAAAAAAAANAP//AgAAAAAAAAAOAP//AgAAAAAAAAAPAP//AgAAAAAAAAAQAP//AgAAAAAAAAARAP//AgAAAAAAAAASAP//AgAAAAAAAAATAP//AgAAAAAAAAATAAAAAgAAAAAAAAATAAEAAgAAAAAAAAATAAIAAgAAAAAAAAATAAMAAgAAAAAAAAATAAQAAgAAAAAAAAATAAUAAgAAAAAAAAATAAYAAgAAAAAAAAATAAcAAgAAAAAAAAATAAgAAgAAAAAAAAATAAkAAgAAAAAAAAATAAoAAgAAAAAAAAATAAsAAgAAAAAAAAATAAwAAgAAAAAAAAA=")
 tile_set = SubResource("TileSet_3151r")
 
 [connection signal="body_entered" from="Gun/Area2D" to="Player" method="_on_area_2d_body_entered"]

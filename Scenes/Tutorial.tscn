@@ -1,42 +1,20 @@
-[gd_scene format=3 uid="uid://b40j6sjhekkh"]
+[gd_scene format=4 uid="uid://b40j6sjhekkh"]
 
-[ext_resource type="Texture2D" uid="uid://i2hmf66jjcap" path="res://Assets/grass.png" id="2_fx2vl"]
 [ext_resource type="Texture2D" uid="uid://dgr2rrep0qv38" path="res://Assets/screen.png" id="2_vmk76"]
-[ext_resource type="Texture2D" uid="uid://cmtjnmp35r6f" path="res://Assets/rocknormal.png" id="3_m35rq"]
-[ext_resource type="Texture2D" uid="uid://c8vq66drjm34n" path="res://Assets/rockbottom.png" id="3_sgy12"]
 [ext_resource type="Texture2D" uid="uid://gnnvic14xrj7" path="res://Assets/Meta.png" id="4_x7a1n"]
 [ext_resource type="Texture2D" uid="uid://b36lc87772y5c" path="res://Assets/Gun.png" id="6_x7a1n"]
+[ext_resource type="Script" uid="uid://xarbu46nj06m" path="res://Scenes/ShutUpIKnowThisIsARubberBandFixAndItSucksButIHaveLESSTHANADAYLEFTINTHEJAM.gd" id="7_brn58"]
 [ext_resource type="Script" uid="uid://bllnwxyqo3hhy" path="res://Scripts/player.gd" id="7_w0iy2"]
-[ext_resource type="Script" uid="uid://bmj8x1tpqkk1" path="res://Scenes/temp.gd" id="8_vv0ms"]
+[ext_resource type="Texture2D" uid="uid://de2ij8r5pxu1j" path="res://Assets/Box.png" id="8_brn58"]
 [ext_resource type="Script" uid="uid://dd8tm4aogy4bu" path="res://Scripts/Sqsh&Strch.gd" id="9_hmkhd"]
-[ext_resource type="Texture2D" uid="uid://b7tbffnnsplj" path="res://Assets/Key.png" id="9_hxa32"]
 [ext_resource type="AudioStream" uid="uid://3v4skbtca271" path="res://Assets/Sound/Shooting1.wav" id="10_dlght"]
 [ext_resource type="Script" uid="uid://bnk5nj6ory3x0" path="res://Scripts/gun.gd" id="11_5vhnn"]
 [ext_resource type="AudioStream" uid="uid://cthaq84fj8w6r" path="res://Assets/Sound/Forest Level Theme.wav" id="12_5gw1s"]
 [ext_resource type="Texture2D" uid="uid://cgjot7ktwiy1q" path="res://Assets/forestbg.png" id="12_sgy12"]
 [ext_resource type="Script" uid="uid://c45814wlp65mx" path="res://Scenes/label.gd" id="13_sgy12"]
+[ext_resource type="FontFile" uid="uid://dy826rldskkym" path="res://Scenes/PixelifySans-VariableFont_wght.ttf" id="14_fx2vl"]
 [ext_resource type="AudioStream" uid="uid://b11aabqmbbwt6" path="res://Assets/Sound/JumpSfx.wav" id="15_brn58"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mqud2"]
-size = Vector2(641.0002, 74.000015)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sswaw"]
-size = Vector2(32.999992, 131.99997)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kpk71"]
-size = Vector2(36, 129.60002)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8nvbb"]
-size = Vector2(36.00004, 207)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_orlbv"]
-size = Vector2(146.00003, 27.000004)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_m8quk"]
-size = Vector2(44.000008, 41.000004)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k6kwl"]
-size = Vector2(53.000008, 163)
+[ext_resource type="Texture2D" uid="uid://5s33ave77r0o" path="res://Assets/AA11TRILESERT.png" id="17_mqud2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ycwcr"]
 size = Vector2(28, 28)
@@ -44,8 +22,67 @@ size = Vector2(28, 28)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hxa32"]
 size = Vector2(8, 16)
 
+[sub_resource type="Animation" id="Animation_mqud2"]
+resource_name = "Fly IN"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1875, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_sswaw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1875, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kpk71"]
+_data = {
+&"Fly IN": SubResource("Animation_mqud2"),
+&"RESET": SubResource("Animation_sswaw")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m35rq"]
 size = Vector2(28, 25)
+
+[sub_resource type="Animation" id="Animation_fx2vl"]
+resource_name = "DIe"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mqud2"]
+_data = {
+&"DIe": SubResource("Animation_fx2vl")
+}
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sswaw"]
+texture = ExtResource("17_mqud2")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_kpk71"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_sswaw")
 
 [node name="Tutorial" type="Node2D" unique_id=929903980]
 texture_filter = 1
@@ -53,137 +90,6 @@ texture_filter = 1
 [node name="Screen" type="Sprite2D" parent="." unique_id=2009270915]
 position = Vector2(320, 180)
 texture = ExtResource("2_vmk76")
-
-[node name="StaticBody2D7" type="StaticBody2D" parent="." unique_id=1474338265]
-position = Vector2(327.50003, 319)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D7" unique_id=337038638]
-position = Vector2(-7.0000305, 11)
-scale = Vector2(0.99999976, 1)
-shape = SubResource("RectangleShape2D_mqud2")
-
-[node name="TextureRect" type="TextureRect" parent="StaticBody2D7" unique_id=462140438]
-z_index = 1
-offset_left = -326.50003
-offset_top = -26.0
-offset_right = 312.49997
-offset_bottom = 6.0
-texture = ExtResource("2_fx2vl")
-stretch_mode = 1
-
-[node name="TextureRect2" type="TextureRect" parent="StaticBody2D7" unique_id=884543776]
-offset_left = -326.50003
-offset_top = 3.0
-offset_right = 313.49997
-offset_bottom = 49.0
-texture = ExtResource("3_m35rq")
-stretch_mode = 1
-
-[node name="StaticBody2D6" type="StaticBody2D" parent="." unique_id=1864673962]
-position = Vector2(292.6215, 157.74062)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6" unique_id=226693251]
-position = Vector2(-10.1214905, -6.740616)
-scale = Vector2(0.99999976, 1.0000001)
-shape = SubResource("RectangleShape2D_sswaw")
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D6" unique_id=1152447105]
-position = Vector2(-9.6214905, 50.259384)
-texture = ExtResource("3_sgy12")
-
-[node name="TextureRect" type="TextureRect" parent="StaticBody2D6" unique_id=1596075261]
-offset_left = -25.62149
-offset_top = -74.740616
-offset_right = 6.3785095
-offset_bottom = 37.259384
-texture = ExtResource("3_m35rq")
-stretch_mode = 1
-
-[node name="StaticBody2D5" type="StaticBody2D" parent="." unique_id=347896060]
-position = Vector2(225.62149, 109.16041)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5" unique_id=1816332831]
-position = Vector2(-36.62149, 0.7999878)
-scale = Vector2(0.99999976, 1)
-shape = SubResource("RectangleShape2D_kpk71")
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D5" unique_id=1610177835]
-position = Vector2(-35.62149, 62.839592)
-texture = ExtResource("3_sgy12")
-
-[node name="TextureRect" type="TextureRect" parent="StaticBody2D5" unique_id=1514040201]
-offset_left = -51.62149
-offset_top = -64.16041
-offset_right = -19.62149
-offset_bottom = 47.839592
-texture = ExtResource("3_m35rq")
-stretch_mode = 1
-
-[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=864880252]
-position = Vector2(451.6215, 182.24062)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=22680669]
-position = Vector2(8.3785095, 5.259384)
-scale = Vector2(0.99999976, 1)
-shape = SubResource("RectangleShape2D_8nvbb")
-
-[node name="TextureRect" type="TextureRect" parent="StaticBody2D4" unique_id=833959174]
-offset_left = -10.6214905
-offset_top = -99.240616
-offset_right = 27.37851
-offset_bottom = 109.759384
-texture = ExtResource("3_m35rq")
-stretch_mode = 1
-
-[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1957239306]
-position = Vector2(369.2768, 88.160416)
-
-[node name="TextureRect" type="TextureRect" parent="StaticBody2D3" unique_id=1134106540]
-offset_left = -72.276794
-offset_top = -5.1604156
-offset_right = 72.37544
-offset_bottom = 26.839584
-texture = ExtResource("3_sgy12")
-stretch_mode = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=1781335470]
-position = Vector2(3.7232056, 7.3395844)
-scale = Vector2(0.9999999, 1)
-shape = SubResource("RectangleShape2D_orlbv")
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=292115284]
-position = Vector2(137, 282)
-
-[node name="TextureRect2" type="TextureRect" parent="StaticBody2D2" unique_id=678917411]
-offset_left = -22.000015
-offset_top = -22.0
-offset_right = 23.999985
-offset_bottom = 19.0
-texture = ExtResource("3_m35rq")
-stretch_mode = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=75707480]
-position = Vector2(0.99998474, -2.5)
-scale = Vector2(0.99999976, 1.0000001)
-shape = SubResource("RectangleShape2D_m8quk")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1693016446]
-position = Vector2(545, 202.69754)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=869833656]
-position = Vector2(40.5, 11.802475)
-scale = Vector2(0.99999976, 1.0000001)
-shape = SubResource("RectangleShape2D_k6kwl")
-
-[node name="TextureRect" type="TextureRect" parent="StaticBody2D" unique_id=395892546]
-offset_left = 15.0
-offset_top = -66.69754
-offset_right = 67.0
-offset_bottom = 93.30246
-texture = ExtResource("3_m35rq")
-stretch_mode = 1
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1100248024]
 position = Vector2(84, 237)
@@ -208,23 +114,29 @@ offset = Vector2(16, 0)
 script = ExtResource("11_5vhnn")
 
 [node name="Marker2D" type="Marker2D" parent="Player/Gun" unique_id=240254181]
-position = Vector2(32, 7)
+position = Vector2(31, -6)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1959658794]
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_ycwcr")
 
-[node name="Key" type="Area2D" parent="." unique_id=665294694]
-position = Vector2(570, 122)
-script = ExtResource("8_vv0ms")
+[node name="Key" type="Area2D" parent="Player" unique_id=665294694]
+position = Vector2(1875, 0)
+script = ExtResource("7_brn58")
 Scene = "res://Scenes/no_jump.tscn"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Key" unique_id=501801452]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Key" unique_id=501801452]
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_hxa32")
 
-[node name="Sprite2D" type="Sprite2D" parent="Key" unique_id=197131677]
-texture = ExtResource("9_hxa32")
+[node name="Sprite2D" type="Sprite2D" parent="Player/Key" unique_id=197131677]
+position = Vector2(0, -8)
+scale = Vector2(2, 2)
+texture = ExtResource("8_brn58")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player/Key" unique_id=471517419]
+libraries/ = SubResource("AnimationLibrary_kpk71")
+speed_scale = 0.5
 
 [node name="GunSound" type="AudioStreamPlayer" parent="." unique_id=1391878806]
 stream = ExtResource("10_dlght")
@@ -235,7 +147,7 @@ autoplay = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1249215507]
 z_index = -1
-position = Vector2(320, 178)
+position = Vector2(320, 179)
 texture = ExtResource("12_sgy12")
 
 [node name="Gun" type="Sprite2D" parent="." unique_id=83507967]
@@ -248,18 +160,62 @@ texture = ExtResource("6_x7a1n")
 position = Vector2(3, 2.5)
 shape = SubResource("RectangleShape2D_m35rq")
 
-[node name="Label" type="Label" parent="." unique_id=238798968]
-offset_left = 155.0
-offset_top = 12.0
-offset_right = 468.0
-offset_bottom = 35.0
+[node name="Label2" type="Label" parent="." unique_id=1041034768]
+offset_left = 167.0
+offset_top = 16.0
+offset_right = 480.0
+offset_bottom = 39.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("14_fx2vl")
 text = "YOU WEREN\"T SUPPOSED TO HAVE THAT"
 script = ExtResource("13_sgy12")
+
+[node name="Label" type="Label" parent="." unique_id=238798968]
+offset_left = 167.0
+offset_top = 15.0
+offset_right = 480.0
+offset_bottom = 38.0
+theme_override_colors/font_color = Color(0.49747485, 0.49747318, 0.497474, 1)
+theme_override_fonts/font = ExtResource("14_fx2vl")
+text = "YOU WEREN\"T SUPPOSED TO HAVE THAT"
+script = ExtResource("13_sgy12")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Label" unique_id=354446842]
+libraries/ = SubResource("AnimationLibrary_mqud2")
+
+[node name="Label3" type="Label" parent="Label" unique_id=444027298]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 20.0
+offset_right = 393.0
+offset_bottom = 43.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("14_fx2vl")
+text = "TO JAIL WITH YOU"
+
+[node name="Label4" type="Label" parent="Label" unique_id=637666674]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 19.0
+offset_right = 393.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0.49747485, 0.49747318, 0.497474, 1)
+theme_override_fonts/font = ExtResource("14_fx2vl")
+text = "TO JAIL WITH YOU"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Label/Label4" unique_id=294488978]
+libraries/ = SubResource("AnimationLibrary_mqud2")
 
 [node name="JumpSound" type="AudioStreamPlayer" parent="." unique_id=664598124]
 stream = ExtResource("15_brn58")
 
-[connection signal="body_entered" from="Key" to="Key" method="_on_body_entered"]
-[connection signal="body_entered" from="Gun/Area2D" to="Player" method="_on_area_2d_body_entered"]
+[node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=1700708906]
+position = Vector2(448, 328)
+tile_map_data = PackedByteArray("AAD4////AQABAAAAAAD3////AQABAAAAAAD2////AQABAAAAAAD1////AQABAAAAAAD0////AQABAAAAAADz////AQABAAAAAADy////AQABAAAAAAD4/wAAAQABAAAAAAD3/wAAAQABAAAAAAD2/wAAAQABAAAAAAD1/wAAAQABAAAAAAD0/wAAAQABAAAAAADz/wAAAQABAAAAAADy/wAAAQABAAAAAADy//7/AQAAAAAAAADz//7/AQAAAAAAAAD0//7/AQAAAAAAAAD1//7/AQAAAAAAAAD2//7/AQAAAAAAAAD3//7/AQAAAAAAAAD4//7/AQAAAAAAAAD5//7/AQAAAAAAAAD6//7/AQAAAAAAAAD7//7/AQAAAAAAAAD8//7/AQAAAAAAAAD9//7/AQAAAAAAAAD+//7/AQAAAAAAAAD///7/AQAAAAAAAAAAAP7/AQAAAAAAAAABAP7/AQAAAAAAAAACAP7/AQAAAAAAAAADAP7/AQAAAAAAAAAEAP7/AQAAAAAAAAAFAP7/AQAAAAAAAAD5////AQABAAAAAAD5/wAAAQABAAAAAAD6/wAAAQABAAAAAAD7/wAAAQABAAAAAAD8/wAAAQABAAAAAAD9/wAAAQABAAAAAAD+/wAAAQABAAAAAAD//wAAAQABAAAAAAAAAAAAAQABAAAAAAABAAAAAQABAAAAAAACAAAAAQABAAAAAAADAAAAAQABAAAAAAAEAAAAAQABAAAAAAAFAAAAAQABAAAAAAAGAAAAAQABAAAAAAAHAAAAAQABAAAAAAAIAAAAAQABAAAAAAAJAAAAAQABAAAAAAAKAAAAAQABAAAAAAALAAAAAQABAAAAAAAFAP//AQABAAAAAAAEAP//AQABAAAAAAADAP//AQABAAAAAAACAP//AQABAAAAAAABAP//AQABAAAAAAAAAP//AQABAAAAAAD/////AQABAAAAAAD+////AQABAAAAAAD9////AQABAAAAAAD8////AQABAAAAAAD7////AQABAAAAAAD6////AQABAAAAAAAGAPT/AQABAAAAAAAGAPX/AQABAAAAAAAGAPb/AQABAAAAAAAHAPb/AQABAAAAAAAHAPf/AQABAAAAAAAHAPj/AQABAAAAAAAGAPj/AQABAAAAAAAGAPn/AQABAAAAAAAGAPr/AQABAAAAAAAGAPf/AQABAAAAAAAGAPv/AQABAAAAAAAGAPz/AQABAAAAAAAGAP3/AQABAAAAAAAGAP7/AQABAAAAAAAGAP//AQABAAAAAAAFAPT/AQABAAAAAAAEAPT/AQABAAAAAAADAPT/AQABAAAAAAACAPT/AQABAAAAAAABAPT/AQABAAAAAAAAAPT/AQABAAAAAAD///T/AQABAAAAAAD+//T/AQABAAAAAAD9//T/AQABAAAAAAD8//T/AQABAAAAAAD7//T/AQABAAAAAAD6//T/AQABAAAAAAD5//T/AQABAAAAAAD4//T/AQABAAAAAAD3//T/AQABAAAAAAD2//T/AQABAAAAAAD1//T/AQABAAAAAAD0//T/AQABAAAAAADz//T/AQABAAAAAADy//T/AQABAAAAAADx//T/AQABAAAAAADx//X/AQABAAAAAADx//b/AQABAAAAAADw//b/AQABAAAAAADw//f/AQABAAAAAADw//j/AQABAAAAAADw//n/AQABAAAAAADw//r/AQABAAAAAADx//v/AQABAAAAAADx//z/AQABAAAAAADx//3/AQABAAAAAADx//7/AQABAAAAAADx////AQABAAAAAADx/wAAAQABAAAAAADx//f/AQABAAAAAADx//j/AQABAAAAAADx//n/AQABAAAAAADx//r/AQABAAAAAAD5//v/AQAAAAEAAAD5//r/AQABAAAAAAD5//n/AQABAAAAAAD5//j/AQABAAAAAAD8//z/AQAAAAEAAAD8//v/AQABAAAAAAD8//r/AQABAAAAAAD8//n/AQABAAAAAAD9//n/AQABAAAAAAD+//n/AQABAAAAAAD///n/AQABAAAAAAAAAPn/AQABAAAAAAABAPn/AQABAAAAAAA=")
+tile_set = SubResource("TileSet_kpk71")
+
+[connection signal="body_entered" from="Player/Key" to="Player/Key" method="_on_body_entered"]
 [connection signal="body_entered" from="Gun/Area2D" to="Player" method="_on_1st_area_2d_body_entered"]
+[connection signal="body_entered" from="Gun/Area2D" to="Player" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Gun/Area2D" to="Label2" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Gun/Area2D" to="Label" method="_on_area_2d_body_entered"]

@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://r0moookyoyr3"]
 
-[ext_resource type="PackedScene" uid="uid://b40j6sjhekkh" path="res://Scenes/Tutorial.tscn" id="1_8gbba"]
+[ext_resource type="PackedScene" uid="uid://b6j6rqa4fqmmt" path="res://Scenes/MainMenu.tscn" id="1_8gbba"]
 [ext_resource type="Shader" uid="uid://is0k8gta0vb2" path="res://Scripts/Transition.gdshader" id="2_bo1nx"]
 [ext_resource type="Shader" uid="uid://cm6i5gpc5ouwm" path="res://Shaders/CRT.gdshader" id="3_8gbba"]
 
 [sub_resource type="GDScript" id="GDScript_3afsx"]
 script/source = "extends Node2D
+@onready var crt: ColorRect = $\"../../../CRT\"
 
 var current_scene: Node = null
 var Next_scene: String = \"res://Scenes/Test.tscn\"
@@ -43,7 +44,14 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		load_two()
 		anim_player.play(\"Out\")
 
+func _process(delta: float) -> void:
 
+	
+	if Input.is_action_just_pressed(\"q\"):
+		if crt.visible == false:
+			crt.visible = true
+		elif crt.visible == true:
+			crt.visible = false
 
 func load_two() -> void:
 	_clear_children()
@@ -166,7 +174,7 @@ render_target_update_mode = 4
 script = SubResource("GDScript_3afsx")
 Menu = false
 
-[node name="Tutorial" parent="CanvasLayer/SubViewportContainer/SubViewport/Manager" unique_id=929903980 instance=ExtResource("1_8gbba")]
+[node name="MainMenu" parent="CanvasLayer/SubViewportContainer/SubViewport/Manager" unique_id=1868582927 instance=ExtResource("1_8gbba")]
 
 [node name="Transition" type="ColorRect" parent="CanvasLayer/SubViewportContainer/SubViewport" unique_id=1017650225]
 z_index = 105

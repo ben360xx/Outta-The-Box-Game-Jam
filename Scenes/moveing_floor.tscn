@@ -1,104 +1,47 @@
 [gd_scene format=4 uid="uid://b5dd5q1ai1yht"]
 
+[ext_resource type="Script" uid="uid://cvtd6tj6e72pb" path="res://Scenes/key.gd" id="1_qt6pd"]
 [ext_resource type="Texture2D" uid="uid://cmpi2poxgpgyp" path="res://Assets/WarehouseTileSet.png" id="1_xkf07"]
 [ext_resource type="Texture2D" uid="uid://b7tbffnnsplj" path="res://Assets/Key.png" id="2_74j8p"]
-[ext_resource type="Script" uid="uid://bmj8x1tpqkk1" path="res://Scenes/temp.gd" id="2_131qa"]
 [ext_resource type="Script" uid="uid://bllnwxyqo3hhy" path="res://Scripts/player.gd" id="3_26ars"]
-[ext_resource type="Texture2D" uid="uid://v1nysdk5ujqa" path="res://Assets/gamejamBack.jpg" id="4_1yuxv"]
 [ext_resource type="Texture2D" uid="uid://b40pm7d5o0tkq" path="res://Assets/Player.png" id="4_131qa"]
 [ext_resource type="Script" uid="uid://dd8tm4aogy4bu" path="res://Scripts/Sqsh&Strch.gd" id="5_lj7dn"]
 [ext_resource type="Texture2D" uid="uid://b36lc87772y5c" path="res://Assets/Gun.png" id="6_xkf07"]
 [ext_resource type="Script" uid="uid://bnk5nj6ory3x0" path="res://Scripts/gun.gd" id="7_1yuxv"]
 [ext_resource type="AudioStream" uid="uid://b11aabqmbbwt6" path="res://Assets/Sound/JumpSfx.wav" id="9_lj7dn"]
+[ext_resource type="FontFile" uid="uid://dy826rldskkym" path="res://Scenes/PixelifySans-VariableFont_wght.ttf" id="9_qt6pd"]
 [ext_resource type="AudioStream" uid="uid://b02k4m77yudng" path="res://Assets/Sound/Warehouse Level Theme.wav" id="10_xkf07"]
+[ext_resource type="Texture2D" uid="uid://dsxj7hgtib2ug" path="res://Assets/gamejamBack.png" id="11_1yuxv"]
+[ext_resource type="Script" uid="uid://bmj8x1tpqkk1" path="res://Scenes/temp.gd" id="13_xtsew"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1yuxv"]
-size = Vector2(229.12509, 65.000015)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4dmvt"]
+size = Vector2(8, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yvox0"]
+size = Vector2(128.00003, 129.60002)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qt6pd"]
 texture = ExtResource("1_xkf07")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 1:1/0 = 0
 2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 0:2/0 = 0
 1:2/0 = 0
 2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-4:3/0 = 0
-5:3/0 = 0
-0:4/0 = 0
-1:4/0 = 0
-2:4/0 = 0
-3:4/0 = 0
-0:5/0 = 0
-1:5/0 = 0
-2:5/0 = 0
-3:5/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_xtsew"]
-sources/0 = SubResource("TileSetAtlasSource_qt6pd")
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yvox0"]
-size = Vector2(157.0001, 59.000008)
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1yuxv"]
-texture = ExtResource("1_xkf07")
-texture_region_size = Vector2i(32, 32)
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-4:3/0 = 0
-5:3/0 = 0
-0:4/0 = 0
-1:4/0 = 0
-2:4/0 = 0
-3:4/0 = 0
-0:5/0 = 0
-1:5/0 = 0
-2:5/0 = 0
-3:5/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_qt6pd"]
 tile_size = Vector2i(32, 32)
-sources/0 = SubResource("TileSetAtlasSource_1yuxv")
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xqk8d"]
-size = Vector2(7, 14.775383)
+physics_layer_0/collision_layer = 1
+sources/2 = SubResource("TileSetAtlasSource_qt6pd")
 
 [sub_resource type="Animation" id="Animation_p0lkd"]
 length = 0.001
@@ -114,22 +57,10 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(382.99994, 321)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Key_Area:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(477, 272)]
-}
 
 [sub_resource type="Animation" id="Animation_5tlex"]
 resource_name = "moving_floor"
-length = 3.0333333
+length = 2.0333
 loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -138,22 +69,10 @@ tracks/0/path = NodePath("StaticBody2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.96666664, 1.9666667, 3.0333333),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.96666664, 1.9666667),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(382.99994, 321), Vector2(475.99997, 321), Vector2(402.99997, 321), Vector2(335, 321)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Key_Area:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.96666664, 2, 3.0333333),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(477, 272), Vector2(570, 272), Vector2(497.00003, 272), Vector2(429.00003, 272)]
+"values": [Vector2(335.975, 321), Vector2(475.99997, 321), Vector2(476, 148.605)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_74j8p"]
@@ -165,47 +84,47 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qt6pd"]
 size = Vector2(28, 28)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_131qa"]
-size = Vector2(498, 50)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xtsew"]
+size = Vector2(123.5, 1047)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8dcwm"]
+size = Vector2(1074, 50)
 
 [node name="Basic Jump" type="Node2D" unique_id=2024985305]
+position = Vector2(4, 8)
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1431780860]
-position = Vector2(112.374985, 321.00003)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=992730813]
-position = Vector2(36.062485, 0.7999878)
-scale = Vector2(0.99999976, 1)
-shape = SubResource("RectangleShape2D_1yuxv")
-
-[node name="TileMapLayer" type="TileMapLayer" parent="StaticBody2D2" unique_id=2107987946]
-tile_map_data = PackedByteArray("AAAGAAAAAAABAAEAAAAEAAAAAAABAAEAAAACAAAAAAABAAEAAAAAAAAAAAABAAEAAAD+/wAAAAABAAEAAAD+//7/AAAAAAEAAAAAAP7/AAAAAAEAAAACAP7/AAAAAAEAAAAEAP7/AAAAAAEAAAAGAAIAAAAAAAEAAAAGAP7/AAAAAAEAAAAEAAIAAAAAAAEAAAACAAIAAAAAAAEAAAAAAAIAAAAAAAEAAAD+/wIAAAAAAAEAAAAIAP7/AAAAAAAAABAIAAIAAAAAAAAAADAIAAAAAAABAAAAAAD7/wAAAAABAAAAAAD7//7/AAAAAAAAAAD7/wIAAAAAAAAAACD9/wIAAAAAAAEAAAD9//7/AAAAAAEAAAD9/wAAAAABAAIAAAA=")
-tile_set = SubResource("TileSet_xtsew")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1754121361]
-position = Vector2(335, 321)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1768958176]
-position = Vector2(14.5000305, -1.5)
-scale = Vector2(0.9999999, 1)
-shape = SubResource("RectangleShape2D_yvox0")
-
-[node name="TileMapLayer" type="TileMapLayer" parent="StaticBody2D" unique_id=856401520]
-tile_map_data = PackedByteArray("AAABAP//AAAAAAEAAAACAP//AAAAAAAAABACAAAAAAAAAAAAADABAAAAAAAAAAEAAAD//wAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAP//AAAAAAEAAAD/////AAAAAAEAAAD+////AAAAAAAAAAD+/wAAAAAAAAAAACA=")
-tile_set = SubResource("TileSet_qt6pd")
-use_kinematic_bodies = true
-
-[node name="Key_Area" type="Area2D" parent="." unique_id=861692227]
-position = Vector2(429.00003, 272)
-script = ExtResource("2_131qa")
+[node name="Key" type="Area2D" parent="." unique_id=1926006471]
+position = Vector2(305, 158)
+script = ExtResource("1_qt6pd")
 Scene = "res://Scenes/wall_jump.tscn"
 
-[node name="Key" type="Sprite2D" parent="Key_Area" unique_id=1638560128]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Key" unique_id=417289245]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_4dmvt")
+
+[node name="Sprite2D" type="Sprite2D" parent="Key" unique_id=48489958]
 texture = ExtResource("2_74j8p")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Key_Area" unique_id=262814354]
-position = Vector2(-0.6479492, 2.6123123)
-shape = SubResource("RectangleShape2D_xqk8d")
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1754121361]
+position = Vector2(347.2748, 321)
+scale = Vector2(1.7128909, 0.57031226)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1768958176]
+position = Vector2(0, 0.7999878)
+scale = Vector2(0.99999976, 1)
+shape = SubResource("RectangleShape2D_yvox0")
+disabled = true
+
+[node name="TileMapLayer" type="TileMapLayer" parent="StaticBody2D" unique_id=1431367988]
+position = Vector2(7.4290633, 3.5068731)
+scale = Vector2(0.5838084, 1.7534255)
+tile_map_data = PackedByteArray("AAD8////AgAAAAAAAAD9////AgAAAAEAAAD+////AgAAAAEAAAD/////AgAAAAEAAAAAAP//AgAAAAEAAAABAP//AgAAAAEAAAACAAAAAgAAAAAAADABAAAAAgAAAAEAAAAAAAAAAgAAAAEAAAD//wAAAgAAAAEAAAD+/wAAAgAAAAEAAAD9/wAAAgAAAAEAAAD8/wAAAgAAAAAAAGACAP//AgAAAAAAAFA=")
+tile_set = SubResource("TileSet_xtsew")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=1053027837]
+position = Vector2(438.29956, 321)
+tile_map_data = PackedByteArray("AAD4////AgAAAAEAAAD3////AgAAAAEAAAD2////AgAAAAEAAAD1////AgAAAAEAAAD0////AgAAAAEAAADz////AgAAAAEAAADy////AgAAAAEAAAD4/wAAAgABAAEAAAD3/wAAAgAAAAIAAAD2/wAAAgABAAEAAAD1/wAAAgAAAAIAAAD0/wAAAgAAAAIAAADz/wAAAgAAAAIAAADy/wAAAgABAAEAAAA=")
+tile_set = SubResource("TileSet_xtsew")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1352705454]
 reset_on_save = false
@@ -242,20 +161,12 @@ position = Vector2(31, -6)
 position = Vector2(11, 3)
 shape = SubResource("RectangleShape2D_qt6pd")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1913887341]
-position = Vector2(250, 401)
-script = ExtResource("2_131qa")
-Scene = "res://Scenes/moveing_floor.tscn"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=420014702]
-position = Vector2(-2, -15)
-shape = SubResource("RectangleShape2D_131qa")
-
 [node name="Label" type="Label" parent="." unique_id=163742121]
 offset_left = 173.0
 offset_top = 98.0
 offset_right = 397.0
 offset_bottom = 121.0
+theme_override_fonts/font = ExtResource("9_qt6pd")
 text = "I GOT RID OF THAT PESKY GUN"
 
 [node name="JumpSound" type="AudioStreamPlayer" parent="." unique_id=1179214035]
@@ -267,8 +178,33 @@ autoplay = true
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1100686131]
 z_index = -1
-position = Vector2(869, 170)
-texture = ExtResource("4_1yuxv")
+position = Vector2(316, 172)
+texture = ExtResource("11_1yuxv")
 
-[connection signal="body_entered" from="Key_Area" to="Key_Area" method="_on_body_entered"]
+[node name="StaticBody2D5" type="StaticBody2D" parent="." unique_id=1064439051]
+position = Vector2(-7, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5" unique_id=1513006360]
+position = Vector2(-59, -152.5)
+shape = SubResource("RectangleShape2D_xtsew")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D5" unique_id=1321442362]
+position = Vector2(705, -131)
+shape = SubResource("RectangleShape2D_xtsew")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D5" unique_id=1795564561]
+position = Vector2(356, -86)
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_xtsew")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=607483489]
+position = Vector2(12, 516)
+script = ExtResource("13_xtsew")
+Scene = "res://Scenes/consecutive_wall_jump.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1499809230]
+position = Vector2(330, -68.82684)
+shape = SubResource("RectangleShape2D_8dcwm")
+
+[connection signal="body_entered" from="Key" to="Key" method="_on_body_entered"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

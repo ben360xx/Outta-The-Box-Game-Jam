@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://cv2ciqpvhok5s"]
 
+[ext_resource type="Script" uid="uid://kknhj0wguj6w" path="res://Scenes/end_menu.gd" id="1_ny72n"]
 [ext_resource type="Texture2D" uid="uid://dgr2rrep0qv38" path="res://Assets/screen.png" id="1_u2nd0"]
 [ext_resource type="Texture2D" uid="uid://gnnvic14xrj7" path="res://Assets/Meta.png" id="2_u2nd0"]
 [ext_resource type="Texture2D" uid="uid://b36lc87772y5c" path="res://Assets/Gun.png" id="3_nkglw"]
 [ext_resource type="Texture2D" uid="uid://cgjot7ktwiy1q" path="res://Assets/forestbg.png" id="4_266kf"]
+[ext_resource type="FontFile" uid="uid://dy826rldskkym" path="res://Scenes/PixelifySans-VariableFont_wght.ttf" id="6_ww1lq"]
 
 [sub_resource type="Animation" id="Animation_8saeu"]
 resource_name = "Loop"
@@ -115,11 +117,71 @@ _data = {
 &"RESET": SubResource("Animation_ghw46")
 }
 
-[sub_resource type="LabelSettings" id="LabelSettings_266kf"]
-font_color = Color(0, 0, 0, 1)
+[sub_resource type="Animation" id="Animation_df05h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Label3:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_8um5k"]
+resource_name = "flash;)"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Label3:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gibvv"]
+_data = {
+&"RESET": SubResource("Animation_df05h"),
+&"flash;)": SubResource("Animation_8um5k")
+}
 
 [node name="MainMenu" type="Node2D" unique_id=1868582927]
 texture_filter = 1
+script = ExtResource("1_ny72n")
+Scene = "res://Scenes/MainMenu.tscn"
 
 [node name="Screen" type="Sprite2D" parent="." unique_id=2060107376]
 position = Vector2(320, 180)
@@ -140,17 +202,72 @@ libraries/ = SubResource("AnimationLibrary_df05h")
 autoplay = &"Loop"
 speed_scale = 0.5
 
-[node name="Label" type="Label" parent="." unique_id=1641210955]
-offset_left = 306.0
-offset_top = 137.0
-offset_right = 571.0
-offset_bottom = 212.0
-text = "Oh, you escaped
-
-Well, back to normal life, i guess"
-label_settings = SubResource("LabelSettings_266kf")
-
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1455793468]
 z_index = -1
 position = Vector2(320, 178)
 texture = ExtResource("4_266kf")
+
+[node name="Label5" type="Label" parent="." unique_id=1705566425]
+offset_left = 150.0
+offset_top = 81.0
+offset_right = 415.0
+offset_bottom = 156.0
+scale = Vector2(4, 4)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_ww1lq")
+text = "YOU ESCAPED!!"
+uppercase = true
+
+[node name="Label6" type="Label" parent="." unique_id=1804465382]
+offset_left = 241.0
+offset_top = 154.0
+offset_right = 506.0
+offset_bottom = 229.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_ww1lq")
+text = "(GREAT JOB)"
+
+[node name="Label2" type="Label" parent="." unique_id=550401480]
+offset_left = 150.0
+offset_top = 78.0
+offset_right = 415.0
+offset_bottom = 153.0
+scale = Vector2(4, 4)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_ww1lq")
+text = "YOU ESCAPED!!"
+uppercase = true
+
+[node name="Label-08912713" type="Label" parent="." unique_id=721775759]
+offset_left = 241.0
+offset_top = 153.0
+offset_right = 506.0
+offset_bottom = 228.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_ww1lq")
+text = "(GREAT JOB)"
+
+[node name="Label7" type="Label" parent="." unique_id=995594935]
+offset_left = 261.0
+offset_top = 223.0
+offset_right = 526.0
+offset_bottom = 298.0
+scale = Vector2(2, 2)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_ww1lq")
+text = "Press E"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Label7" unique_id=920215404]
+libraries/ = SubResource("AnimationLibrary_gibvv")
+autoplay = &"flash;)"
+speed_scale = 4.0
+
+[node name="Label3" type="Label" parent="." unique_id=554090962]
+offset_left = 261.0
+offset_top = 221.0
+offset_right = 526.0
+offset_bottom = 296.0
+scale = Vector2(2, 2)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_ww1lq")
+text = "Press E"

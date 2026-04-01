@@ -12,4 +12,6 @@ func _process(delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	show() # Replace with function body.
+	show() 
+	$".".show()
+	$"../Player/Key/AnimationPlayer".play("Fly IN")

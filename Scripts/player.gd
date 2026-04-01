@@ -14,6 +14,15 @@ var FinalGrav: float
 
 @onready var anim: Sprite2D = $Sprite/Sprite
 
+
+func Updatetee():
+	up_direction = Vector2.UP
+	FinalGrav = grav
+	if not gun:
+		get_node("Gun").hide()
+
+
+
 func _ready() -> void:
 	up_direction = Vector2.UP
 	FinalGrav = grav
@@ -51,8 +60,8 @@ func _physics_process(delta: float) -> void:
 
 		var wall_normal = get_wall_normal()
 
-		velocity.y += -JUMP_VELOCITY
-		velocity.x = wall_normal.x * SPEED * 2
+		velocity.y = -JUMP_VELOCITY
+		
 
 
 	# Horizontal movement
@@ -76,7 +85,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("SHOOT") and gun:
 		var mouse_direction = global_position.direction_to(get_global_mouse_position())
 		velocity += -mouse_direction * KICKBACK
-		get_parent().get_node("GunSound").play()
+		
 
 
 	move_and_slide()
